@@ -33,7 +33,6 @@ body {
 
 
 header.nologin {
-	width: all;
 	height: 82px;
 	color: white;
 	background: black;
@@ -47,16 +46,17 @@ div.tabla {
 	color: black;
 	width: 100%;
 	background: #eeeeee;
-	margin-left: 40px;
-	margin-right: 60px;
+
 	border: 2px solid black;
 }
 
 div.filaHeader {
 	display: table-row;
 	clear: both;
+	background-color: black;
 	margin-bottom: 10px;
 	margin-top: 10px;
+	height: auto;
 
 }
 
@@ -67,7 +67,7 @@ div.fila {
 	margin-bottom: 10px;
 }
 
-div.elementoHeader4 {
+.elementoHeader4 {
 	float: left;
 	display: table-column;
 	background: black;
@@ -89,6 +89,7 @@ div.elemento4 {
 
 div.elementoHeader6 {
 	float: left;
+	height: auto;
 	display: table-column;
 	background: black;
 	color: white;
@@ -104,6 +105,59 @@ div.elemento6 {
 	margin-bottom: 10px;
 	text-align: center;
 	width: 16.6%;		/*Importante a la hora de definir cuantos elementos son en la tabla*/
+
+}
+
+div.elemento5 {
+	float: left;
+	display: table-column;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 20%;		/*Importante a la hora de definir cuantos elementos son en la tabla*/
+
+}
+
+div.elementoHeader5 {
+	float: left;
+	height: auto;
+	display: table-column;
+	background: black;
+	color: white;
+	width: 20%;
+	outline: 2px solid black;
+	text-align: center;
+
+}
+
+div.elemento7 {
+	float: left;
+	display: table-column;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 14.28%;		/*Importante a la hora de definir cuantos elementos son en la tabla*/
+
+}
+
+div.elementoHeader7 {
+	float: left;
+	height: auto;
+	display: table-column;
+	background: black;
+	color: white;
+	width: 14.28%;
+	outline: 2px solid black;
+	text-align: center;
+
+}
+
+.buscador {
+	color: black;
+	background-size: 15px 15px;
+	background-image: url("img/lupa.png");
+    background-position: right;
+    background-repeat: no-repeat;
 
 }
 #titulo	{
