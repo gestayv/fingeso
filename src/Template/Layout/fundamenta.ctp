@@ -45,7 +45,6 @@
 </head>
 <body>
 
-
 	<header id="darkFundamenta">
 		<div id="logo">
 			<a href="http://www.fundamenta.cl"><img src="/img/Fundamenta1.png" alt="Logo Fundamenta" border="0" class="ribbon"> </img></a>
