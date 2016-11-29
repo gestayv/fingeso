@@ -102,14 +102,15 @@ create table owners
 /*==============================================================*/
 create table complaints
 (
-   id              int not null AUTO_INCREMENT,
-   survey_id       int not null,
-   owner_id        int,
-   executor_id     int,
-   priority        int,
-   status          int,
-   description     varchar(300),
-   emission_date   datetime,
+   id                 int not null AUTO_INCREMENT,
+   survey_id          int not null,
+   owner_id           int,
+   executor_id        int,
+   priority           int,
+   status             int,
+   description        varchar(300),
+   availability_date  datetime,
+   emission_date      datetime,
    primary key (id)
 );
 
