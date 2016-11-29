@@ -105,9 +105,10 @@ create table complaints
    id              int not null AUTO_INCREMENT,
    survey_id       int not null,
    owner_id        int,
-   description     varchar(300),
+   executor_id     int,
    priority        int,
    status          int,
+   description     varchar(300),
    emission_date   datetime,
    primary key (id)
 );
@@ -124,16 +125,6 @@ create table supervisors
    name           varchar(50),
    rut            varchar(50),
    primary key (id)
-);
-
-/*==============================================================*/
-/* Table: complaints_executors                                  */
-/*==============================================================*/
-create table complaints_executors
-(
-   executor_id        int,
-   complaint_id       int,
-   primary key(executor_id, complaint_id)
 );
 
 
@@ -160,9 +151,3 @@ alter table complaints add constraint FK_REALIZA foreign key (owner_id)
 
 alter table supervisors add constraint FK_ADMINISTRA foreign key (building_id)
       references buildings (id) on delete restrict on update restrict;
-
-alter table complaints_executors add constraint FK_COMPLAINTS_EXECUTORS foreign key (executor_id)
-      references executors (id) on delete restrict on update restrict;
-
-alter table complaints_executors add constraint FK_COMPLAINTS_EXECUTORS_2 foreign key (complaint_id)
-      references complaints (id) on delete restrict on update restrict;
