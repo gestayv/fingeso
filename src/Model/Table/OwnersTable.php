@@ -94,4 +94,5 @@ class OwnersTable extends Table
 
         return $rules;
     }
+
 }

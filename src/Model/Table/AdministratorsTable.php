@@ -79,4 +79,8 @@ class AdministratorsTable extends Table
 
         return $rules;
     }
+
+    public function index()
+    {   
+    }
 }

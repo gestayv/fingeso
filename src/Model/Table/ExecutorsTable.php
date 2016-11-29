@@ -85,4 +85,8 @@ class ExecutorsTable extends Table
 
         return $rules;
     }
+
+    public function index()
+    {
+    }
 }

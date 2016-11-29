@@ -1,5 +1,8 @@
 <!-- File: src/Template/Users/login.ctp -->
-<?php $this->layout = 'fundamenta'; ?>
+<?php $this->layout = 'fundamenta_login'; ?>
+
+	<title>Home</title>
+	
 	<br>
 	<br>
 
