@@ -19,7 +19,6 @@ class UsersController extends AppController
 
     public function index()
     {
-        return $this->redirect(['controller' => 'Login', 'action' => 'index']);
     }
 
     public function view($id)
