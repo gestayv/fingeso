@@ -34,7 +34,7 @@ create table administrators
 );
 
 /*==============================================================*/
-/* Table: apartments                                          */
+/* Table: apartments                                            */
 /*==============================================================*/
 create table apartments
 (
@@ -47,7 +47,7 @@ create table apartments
 );
 
 /*==============================================================*/
-/* Table: buildings                                              */
+/* Table: buildings                                             */
 /*==============================================================*/
 create table buildings
 (
@@ -92,12 +92,13 @@ create table owners
    password			    	varchar(256),
    apartment_id         int,
    name                 varchar(50),
+   surname              varchar(50),
    rut                  varchar(50),
    primary key (id)
 );
 
 /*==============================================================*/
-/* Table: complaints                                               */
+/* Table: complaints                                            */
 /*==============================================================*/
 create table complaints
 (

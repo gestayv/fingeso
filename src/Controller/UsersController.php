@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
+use Cake\Auth\DefaultPasswordHasher;
 
 class UsersController extends AppController
 {
@@ -43,19 +45,105 @@ class UsersController extends AppController
 
     public function login()
     {
+        $session = $this->request->session();
+        $session->destroy();
         if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $formData = $this->request->data;
+
+            if($formData['tipoUser'] == '1'){
+                $admins = TableRegistry::get('Owners');
+            
+                $query = $admins->find()
+                    ->where([
+                        'username'=>$formData['username'],
+                        'password'=>$formData['password']
+                    ])
+                    ->first();
+
+                if ($query){
+                    $user = $query->toArray();
+                    $session->write('User.tipo','propietario');
+                    $session->write('User',$user);
+
+                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                }else{
+                    $this->Flash->set('Nombre de usuario o contraseña incorrecta');
+                }
+
+
+
+            }elseif($formData['tipoUser'] == '2'){
+                $admins = TableRegistry::get('executors');
+            
+                $query = $admins->find()
+                    ->where([
+                        'username'=>$formData['username'],
+                        'password'=>$formData['password']
+                    ])
+                    ->first();
+
+                if ($query){
+                    $user = $query->toArray();
+                    $session->write('User.tipo','ejecutor');
+                    $session->write('User',$user);
+
+                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+
+                }else{
+                    $this->Flash->set('Nombre de usuario o contraseña incorrecta');
+                }
+
+
+
+            }elseif($formData['tipoUser'] == '3'){
+                $admins = TableRegistry::get('Supervisors');
+            
+                $query = $admins->find()
+                    ->where([
+                        'username'=>$formData['username'],
+                        'password'=>$formData['password']
+                    ])
+                    ->first();
+
+                if ($query){
+                    $user = $query->toArray();
+                    $session->write('User.tipo','supervisor');
+                    $session->write('User',$user);
+
+                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                }else{
+                    $this->Flash->set('Nombre de usuario o contraseña incorrecta');
+                }
+
+
+
+            }elseif($formData['tipoUser'] == '4'){
+                $admins = TableRegistry::get('Administrators');
+            
+                $query = $admins->find()
+                    ->where([
+                        'username'=>$formData['username'],
+                        'password'=>$formData['password']
+                    ])
+                    ->first();
+
+                if ($query){
+                    $user = $query->toArray();
+                    $session->write('User.tipo','admin');
+                    $session->write('User',$user);
+
+                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                }else{
+                    $this->Flash->set('Nombre de usuario o contraseña incorrecta');
+                }
+            }           
         }
     }
 
     public function logout()
     {
-        return $this->redirect($this->Auth->logout());
+        $this->request->session()->destroy();
+        return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
 
 }
