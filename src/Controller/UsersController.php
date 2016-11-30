@@ -65,7 +65,7 @@ class UsersController extends AppController
                     $session->write('User.tipo','propietario');
                     $session->write('User',$user);
 
-                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                    return $this->redirect(['controller' => 'Owners', 'action' => 'index']);
                 }else{
                     $this->Flash->set('Nombre de usuario o contraseña incorrecta');
                 }
@@ -87,7 +87,7 @@ class UsersController extends AppController
                     $session->write('User.tipo','ejecutor');
                     $session->write('User',$user);
 
-                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                    return $this->redirect(['controller' => 'Executors', 'action' => 'index']);
 
                 }else{
                     $this->Flash->set('Nombre de usuario o contraseña incorrecta');
@@ -110,7 +110,7 @@ class UsersController extends AppController
                     $session->write('User.tipo','supervisor');
                     $session->write('User',$user);
 
-                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                    return $this->redirect(['controller' => 'Supervisors', 'action' => 'index']);
                 }else{
                     $this->Flash->set('Nombre de usuario o contraseña incorrecta');
                 }
@@ -132,7 +132,7 @@ class UsersController extends AppController
                     $session->write('User.tipo','admin');
                     $session->write('User',$user);
 
-                    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+                    return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
                 }else{
                     $this->Flash->set('Nombre de usuario o contraseña incorrecta');
                 }
