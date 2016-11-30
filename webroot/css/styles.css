@@ -155,7 +155,7 @@ div.elementoHeader7 {
 .buscador {
 	color: black;
 	background-size: 15px 15px;
-	background-image: url("img/lupa.png");
+	background-image: url("/img/lupa.png");
     background-position: right;
     background-repeat: no-repeat;
 
