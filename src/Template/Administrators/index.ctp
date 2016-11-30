@@ -1,16 +1,16 @@
 <?php $this->layout='fundamenta'?>
 	<!--Rectangulo de Reclamos-->
 	<title>Menu principal: Administrador</title>
-	<div class="">
+	<div class="content" >
 		
 		<section class="main-row">
 			<!--Buscador -->
 			<div class="col-md-offset-1 col-md-2">
 				<label for="" class="">Buscador de texto</label>
 				<div class="form-group">
-					<input type="text" class="buscador" placeholder="Nombre de usuario:">
-					<input type="text" class="buscador" placeholder="Rut:">
-					<input type="text" class="buscador" placeholder="Tipo de usuario:">
+					<input type="text" class="buscador" placeholder="Nombre de usuario">
+					<input type="text" class="buscador" placeholder="Rut">
+					<input type="text" class="buscador" placeholder="Tipo de usuario">
 			    </div>
 			    <div class="form-group text-center">
 			    	<button class="btn btn-primary text-center">Buscar</button>
@@ -21,7 +21,8 @@
 				</div>
 			</div>
 			<!--Rectangulo de Reclamos-->
-			<div class="col-md-8">
+
+			<div class="col-md-8"">
 				<div class="tabla">
 					<div class="filaHeader">
 						<div class="elementoHeader5">Nombre</div>
@@ -30,6 +31,9 @@
 						<div class="elementoHeader5">Tipo de Usuario</div>
 						<div class="elementoHeader5">Seleccion</div>
 					</div>
+				</div>
+				<div class="tabla" style="overflow: scroll;">
+					
 					<div class="fila">
 					<?php foreach ($admins as $admin): ?>
 						    <div class="elemento5">
