@@ -48,7 +48,7 @@ div.tabla {
 	width: 100%;
 	background: #eeeeee;
 	overflow-y: scroll;
-	max-height: 70%;
+	max-height: 50px;
 	border: 2px solid black;
 }
 

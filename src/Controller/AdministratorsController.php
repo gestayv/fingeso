@@ -24,6 +24,7 @@ class AdministratorsController extends AppController
         $owners = $this->Owners->find('all');
         $execs  = $this->Executors->find('all');
         $supers = $this->Supervisors->find('all');
+        $users = [$admins, $owners, $execs, $supers];
         $this->set(compact('admins'));
         $this->set(compact('owners'));
         $this->set(compact('execs')); 

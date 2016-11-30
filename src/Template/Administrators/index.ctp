@@ -15,6 +15,10 @@
 			    <div class="form-group text-center">
 			    	<button class="btn btn-primary text-center">Buscar</button>
 			    </div>
+
+			    <div class="row text-center" style="margin-top:10px">
+						<button class="btn btn-primary" style="background:black">Agregar Usuario</button>
+				</div>
 			</div>
 			<!--Rectangulo de Reclamos-->
 			<div class="col-md-8">
@@ -41,8 +45,13 @@
 						    	<?php echo 'Administrador'; ?>
 						    </div>
 						    <div class="elemento5">	
-							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+							<div class="elementbutton">
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
 							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+							</div>
+						</div>
 					<?php endforeach; ?>
 					</div>
 					<div class="fila">
@@ -60,7 +69,12 @@
 						    	<?php echo 'Propietario'; ?>
 						    </div>
 						    <div class="elemento5">	
-							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+							<div class="elementbutton">
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+							</div>
 						</div>
 					<?php endforeach; ?>
 					</div>
@@ -79,7 +93,12 @@
 						    	<?php echo 'Ejecutor'; ?>
 						    </div>
 						    <div class="elemento5">	
-							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+							<div class="elementbutton">
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+							</div>
 						</div>
 					<?php endforeach; ?>
 					</div>
@@ -98,19 +117,15 @@
 						    	<?php echo 'Supervisor'; ?>
 						    </div>
 						    <div class="elemento5">	
-							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+							<div class="elementbutton">
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+							</div>
 						</div>
 					<?php endforeach; ?>
 					</div>	
-				</div>
-
-				<!-- Botones de centro-->
-				<!-- Segun G2: Modificar Estado / Finalizar Ticket -->
-
-				<div class="row text-center" style="margin-top:50px">
-						<button class="btn btn-primary" style="background:black">Agregar Usuario</button>
-						<button class="btn btn-primary" style="background:black">Modificar Usuario</button>
-						<button class="btn btn-primary" style="background:black">Eliminar Usuario</button>
 				</div>
 			</div>
 		</section>
