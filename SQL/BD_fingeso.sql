@@ -67,6 +67,7 @@ create table surveys
 (
    id                   int not null AUTO_INCREMENT,
    complaint_id         int,
+   status               int not null,
    description          varchar(300),
    primary key (id)
 );
@@ -212,10 +213,12 @@ INSERT INTO owners(username, password, name, surname, rut, apartment_id) VALUES
 INSERT INTO owners(username, password, name, surname, rut, apartment_id) VALUES
 ('owner_4', 'pass_4', 'Joseph', 'Joestar', 89495616, 4);
 
-INSERT INTO surveys(description) VALUES ('No sé que va aquí en realidad, esto es como un placeholder
-   salu2.');
-INSERT INTO surveys(description) VALUES ('Otro placeholder, supongo que podría empezar a decir datos
-   interesantes acá, o mejor no.');
+INSERT INTO surveys(description, status) VALUES ('No sé que va aquí en realidad, esto es como un placeholder
+   salu2.', 1);
+INSERT INTO surveys(description, status) VALUES ('Otro placeholder, supongo que podría empezar a decir datos
+   interesantes acá, o mejor no.', 1);
+INSERT INTO surveys(description, status) VALUES ('Buena encuesta, +10 y a favoritos', 1);
+INSERT INTO surveys(description, status) VALUES ('Terrible encuesta, te deberían banear. Reportado.', 1);
 
 INSERT INTO complaints(survey_id, owner_id, executor_id, priority, status, name, description) VALUES
 (1, 3, 2, 5, 1, 'Arreglo de cañeria', 'La cañeria del baño del propietario ha sido tapada con un objeto

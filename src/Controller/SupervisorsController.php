@@ -18,6 +18,9 @@ class SupervisorsController extends AppController
      */
     public function index()
     {
+        $this->loadModel('Complaints');
+        
+        $admins = $this->Complaints->find('all');
     }
 
     /**

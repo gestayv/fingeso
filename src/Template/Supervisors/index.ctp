@@ -2,7 +2,7 @@
 
 	<br>
 	<br>
-
+	<title>Menu principal: Supervisor</title>
 	<div class="">
 		
 		<section class="main-row">

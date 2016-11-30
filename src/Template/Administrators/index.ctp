@@ -1,6 +1,6 @@
-<?php $this->layout='fundamenta'?>	
+<?php $this->layout='fundamenta'?>
 	<!--Rectangulo de Reclamos-->
-	
+	<title>Menu principal: Administrador</title>
 	<div class="">
 		
 		<section class="main-row">
@@ -27,22 +27,80 @@
 						<div class="elementoHeader5">Seleccion</div>
 					</div>
 					<div class="fila">
-						<div class="elemento5">1.1</div>
-						<div class="elemento5">1.2</div>
-						<div class="elemento5">1.3</div>
-						<div class="elemento5">1.4</div>
-						<div class="elemento5">	
+					<?php foreach ($admins as $admin): ?>
+						    <div class="elemento5">
+						    	<?php echo $admin->name; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $admin->surname; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $admin->rut; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo 'Administrador'; ?>
+						    </div>
+						    <div class="elemento5">	
 							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
-						</div>
+							</div>
+					<?php endforeach; ?>
 					</div>
 					<div class="fila">
-						<div class="elemento5">2.1</div>
-						<div class="elemento5">2.2</div>
-						<div class="elemento5">2.3</div>
-						<div class="elemento5">2.4</div>
-						<div class="elemento5">
-							<label><input type="radio" id="q1" name="grupo" value="2">Seleccionar</label>
+					<?php foreach ($owners as $owner): ?>
+						    <div class="elemento5">
+						    	<?php echo $owner->name; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $owner->surname; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $owner->rut; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo 'Propietario'; ?>
+						    </div>
+						    <div class="elemento5">	
+							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
 						</div>
+					<?php endforeach; ?>
+					</div>
+					<div class="fila">
+					<?php foreach ($execs as $exec): ?>
+						    <div class="elemento5">
+						    	<?php echo $exec->name; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $exec->surname; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $exec->rut; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo 'Ejecutor'; ?>
+						    </div>
+						    <div class="elemento5">	
+							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+						</div>
+					<?php endforeach; ?>
+					</div>
+					<div class="fila">
+					<?php foreach ($supers as $super): ?>
+						    <div class="elemento5">
+						    	<?php echo $super->name; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $super->surname; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $super->rut; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo 'Supervisor'; ?>
+						    </div>
+						    <div class="elemento5">	
+							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+						</div>
+					<?php endforeach; ?>
 					</div>	
 				</div>
 
