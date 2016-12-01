@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Supervisors Controller
@@ -18,9 +19,7 @@ class SupervisorsController extends AppController
      */
     public function index()
     {
-        $this->loadModel('Complaints');
-        
-        $admins = $this->Complaints->find('all');
+     
     }
 
     /**

@@ -197,8 +197,6 @@ UPDATE supervisors SET building_id=2 WHERE id=2;
 UPDATE supervisors SET building_id=3 WHERE id=3;
 UPDATE supervisors SET building_id=4 WHERE id=4;
 
-
-
 INSERT INTO apartments(building_id, num) VALUES (1, 666);
 INSERT INTO apartments(building_id, num) VALUES (2, 420);
 INSERT INTO apartments(building_id, num) VALUES (3, 133);

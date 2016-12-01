@@ -17,7 +17,7 @@
 			    </div>
 
 			    <div class="row text-center" style="margin-top:10px">
-						<button class="btn btn-primary" style="background:black">Agregar Usuario</button>
+						<button onclick="location.href='/users/add'" class="btn btn-primary" style="background:black" >Agregar Usuario</button>
 				</div>
 			</div>
 			<!--Rectangulo de Reclamos-->
@@ -31,10 +31,11 @@
 						<div class="elementoHeader5">Tipo de Usuario</div>
 						<div class="elementoHeader5">Seleccion</div>
 					</div>
+				</div>
+				<div class="tabla" style="overflow: scroll;">
 					
-					
+					<div class="fila">
 					<?php foreach ($admins as $admin): ?>
-						<div class="fila">
 						    <div class="elemento5">
 						    	<?php echo $admin->name; ?>
 						    </div>
@@ -47,20 +48,21 @@
 						    <div class="elemento5">
 						    	<?php echo 'Administrador'; ?>
 						    </div>
-							<div class="elemento5">	
-								<div class="elementbutton">
-									<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
-								</div>
-								<div class="elementbutton">
-									<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
-								</div>
+						    <div class="elemento5">	
+							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'administrators', $admin->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
 							</div>
 						</div>
 					<?php endforeach; ?>
-					
-					
+					</div>
+					<div class="fila">
 					<?php foreach ($owners as $owner): ?>
-						<div class="fila">
 						    <div class="elemento5">
 						    	<?php echo $owner->name; ?>
 						    </div>
@@ -73,20 +75,21 @@
 						    <div class="elemento5">
 						    	<?php echo 'Propietario'; ?>
 						    </div>
-							<div class="elemento5">	
-								<div class="elementbutton">
-									<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
-								</div>
-								<div class="elementbutton">
-									<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
-								</div>
+						    <div class="elemento5">	
+							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'owners',$owner->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
 							</div>
 						</div>
 					<?php endforeach; ?>
-					
-					
+					</div>
+					<div class="fila">
 					<?php foreach ($execs as $exec): ?>
-						<div class="fila">
 						    <div class="elemento5">
 						    	<?php echo $exec->name; ?>
 						    </div>
@@ -100,19 +103,20 @@
 						    	<?php echo 'Ejecutor'; ?>
 						    </div>
 						    <div class="elemento5">	
-								<div class="elementbutton">
-									<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
-								</div>
-								<div class="elementbutton">
-									<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
-								</div>
+							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'executors',$exec->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
 							</div>
-						</div>	
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+							</div>
+						</div>
 					<?php endforeach; ?>
-					
-					
+					</div>
+					<div class="fila">
 					<?php foreach ($supers as $super): ?>
-						<div class="fila">
 						    <div class="elemento5">
 						    	<?php echo $super->name; ?>
 						    </div>
@@ -126,16 +130,18 @@
 						    	<?php echo 'Supervisor'; ?>
 						    </div>
 						    <div class="elemento5">	
-								<div class="elementbutton">
-									<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
-								</div>
-								<div class="elementbutton">
-									<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
-								</div>
+							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'supervisors', $super->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
 							</div>
 						</div>
 					<?php endforeach; ?>
-					
+					</div>	
 				</div>
 			</div>
 		</section>

@@ -20,15 +20,16 @@ class AdministratorsController extends AppController
         $this->loadModel('Owners');
         $this->loadModel('Executors');
         $this->loadModel('Supervisors');
+
         $admins = $this->Administrators->find('all');
         $owners = $this->Owners->find('all');
         $execs  = $this->Executors->find('all');
         $supers = $this->Supervisors->find('all');
+        
         $this->set(compact('admins'));
         $this->set(compact('owners'));
         $this->set(compact('execs')); 
         $this->set(compact('supers'));
-
     }
 
     /**

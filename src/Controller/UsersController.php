@@ -16,7 +16,7 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+        $this->Auth->allow(['add', 'logout', 'edit']);
     }
 
     public function index()
@@ -31,6 +31,7 @@ class UsersController extends AppController
 
     public function add()
     {
+        /*
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -41,6 +42,12 @@ class UsersController extends AppController
             $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
+        */
+    }
+
+    public function edit(/*string*/$tabla, /*int*/$id)
+    {
+        
     }
 
     public function login()
