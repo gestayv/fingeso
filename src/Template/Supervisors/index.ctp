@@ -1,9 +1,7 @@
 <?php $this->layout='fundamenta'?>	
 
-	<br>
-	<br>
 	<title>Menu principal: Supervisor</title>
-	<div class="">
+	<div class="content">
 		
 		<section class="main-row">
 			<!--Buscador -->

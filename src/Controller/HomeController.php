@@ -41,7 +41,7 @@ class HomeController extends AppController
         if ($session->check('User')) {
             $rol = $session->read('User.tipo');
             if($rol = 'admin'){
-                return $this->redirect(['controller' => 'Administradors', 'action' => 'index']);
+                return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
             }elseif ($rol = 'propietario') {
                 return $this->redirect(['controller' => 'Owners', 'action' => 'index']);
             }elseif ($rol = 'ejecutor') {
