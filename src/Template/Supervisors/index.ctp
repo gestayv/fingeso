@@ -31,15 +31,28 @@
 						<div class="elementoHeader7">Seleccion</div>
 					</div>
 					<div class="fila">
-						<div class="elemento7">1.1</div>
-						<div class="elemento7">1.2</div>
-						<div class="elemento7">1.3</div>
-						<div class="elemento7">1.4</div>
-						<div class="elemento7">1.5</div>
-						<div class="elemento7">1.6</div>
-						<div class="elemento7">	
-							<label><input type="radio" id="q1" name="grupo" value="1">Seleccionar</label>
+					<?php foreach ($admins as $admin): ?>
+						    <div class="elemento5">
+						    	<?php echo $admin->name; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $admin->surname; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo $admin->rut; ?>
+						    </div>
+						    <div class="elemento5">
+						    	<?php echo 'Administrador'; ?>
+						    </div>
+						    <div class="elemento5">	
+							<div class="elementbutton">
+								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+							</div>
+							<div class="elementbutton">
+								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+							</div>
 						</div>
+					<?php endforeach; ?>
 					</div>
 					<div class="fila">
 						<div class="elemento7">2.1</div>
