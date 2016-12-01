@@ -48,7 +48,6 @@ div.tabla {
 	color: black;
 	width: 100%;
 	background: #eeeeee;
-	height: 100%
 	border: 2px solid black;
 }
 
@@ -138,6 +137,9 @@ div.elemento7 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	text-align: center;
+	vertical-align: middle;
+	padding-top: 10px;
+	height: 40px;
 	width: 14.28%;		/*Importante a la hora de definir cuantos elementos son en la tabla*/
 
 }
@@ -162,10 +164,30 @@ div.elementbutton {
 
 }
 
+div.button7{
+	float: left;
+	display: table-column;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	vertical-align: middle;
+	height: 40px;
+	width: 14.28%;		/*Importante a la hora de definir cuantos elementos son en la tabla*/
+}
+
+div.elementudbutton {
+	display: table-column-group;
+	width: 100%;
+	height: 50%;
+	text-align: center;
+	float: left;	
+}
+
+}
 .buscador {
 	color: black;
 	background-size: 15px 15px;
-	background-image: url("img/lupa.png");
+	background-image: url("/img/lupa.png");
     background-position: right;
     background-repeat: no-repeat;
 
