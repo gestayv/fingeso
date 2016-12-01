@@ -48,11 +48,6 @@
 
 				<!-- Botones de centro-->
 				<!-- Segun G2: Modificar Estado / Finalizar Ticket -->
-
-				<div class="row text-center" style="margin-top:50px">
-						<button class="btn btn-primary" style="background:black">Asignar Ejecutor</button>
-						<button class="btn btn-primary" style="background:black">Revisar Encuenta</button>
-				</div>
 			</div>
 		</section>
 	</div>
