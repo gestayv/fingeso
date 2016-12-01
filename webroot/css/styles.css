@@ -1,44 +1,45 @@
 /*HEADER: PARTE DE ARRIBA; */
 
+*{
+	border-style: dotted;
+	border-width: 1px;
+}
+
 body {
 	color: white;
 	background: green;
+	height: 100%
 }
 
 #logo {
-	position: absolute;
-	width: 80%;
-	height: 80%;
-	top: 0px;
-	left: 0px;
+	float: left;
+	display: inline-block;
 }
 
-#upright {
-	position: absolute;
+.logout {
+	display: inline-block;
+	float: right;
 	text-align: right;
-	width: 80%;
-	height: 80%;
-	top: 0px;
-	right: 0px;
-	margin-top: 25px;
-	margin-right: 100px;
-}
-
-
-#darkFundamenta {
-	color: white;
-	background: black;
+	margin: 25px;
 }
 
 
 
-
-header.nologin {
-	height: 82px;
+header{
 	color: white;
 	background: black;
-	text-align: center;}
+	overflow: auto;
+}
 
+.nologin {
+	float: left;
+	text-align: center;
+}
+
+.content{
+	overflow: auto;
+	margin-top: 10px;
+}
 
 /*Division de Tablas */
 
@@ -47,8 +48,7 @@ div.tabla {
 	color: black;
 	width: 100%;
 	background: #eeeeee;
-	overflow-y: scroll;
-	max-height: 70%;
+	height: 100%
 	border: 2px solid black;
 }
 

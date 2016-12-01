@@ -40,16 +40,12 @@
 <body>
 
 
-	<header id="darkFundamenta">
-		
-		<br>
-		<div class="container">
-			<div id="logo">
-        <a href="http://www.fundamenta.cl"><img src="/img/Fundamenta1.png" alt="Logo Fundamenta" border="0" class="ribbon"> </img></a>
-      </div>
-      <div class="jumbotron col-md-offset-1" id="darkFundamenta">
-				<h1>Login - Sistema de Postventa</h1>
-			</div>
+	<header >
+		<div id="logo">
+      <a href="http://www.fundamenta.cl"><img src="/img/Fundamenta1.png" alt="Logo Fundamenta" border="0" class="ribbon"> </img></a>
+    </div>
+    <div class="jumbotron col-md-offset-1" style="background-color: black; display: inline-block;">
+			<h1>Sistema de Postventa</h1>
 		</div>
 	</header>
 
