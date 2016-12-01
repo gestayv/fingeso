@@ -19,28 +19,7 @@ class SupervisorsController extends AppController
      */
     public function index()
     {
-        $execs = TableRegistry::get('executors');
-        $owners = TableRegistry::get('owners');
-        $complaints = TableRegistry::get('complaints');
-        
-        $query = $complaints->find()
-                            ->join([
-                                'table' => 'owners',
-                                'alias' => 'props',
-                                'type' => 'INNER',
-                                'foreignKey' => TRUE,
-                                'conditions' => 'props.id = complaints.owner_id',
-                            ]);
-            echo '<br>';
-            echo '<br>';
-            echo '<br>';
-            echo '<br>';
-            echo '<br>';
-            echo '<br>';
-            debug($query->all());
-        $this->set(compact('complaints'));
-        $this->set(compact('owners'));
-        $this->set(compact('execs'));
+     
     }
 
     /**

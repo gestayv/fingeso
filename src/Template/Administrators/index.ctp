@@ -17,7 +17,7 @@
 			    </div>
 
 			    <div class="row text-center" style="margin-top:10px">
-						<button class="btn btn-primary" style="background:black">Agregar Usuario</button>
+						<button onclick="location.href='/users/add'" class="btn btn-primary" style="background:black" >Agregar Usuario</button>
 				</div>
 			</div>
 			<!--Rectangulo de Reclamos-->

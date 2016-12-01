@@ -1,6 +1,6 @@
-<!-- src/Template/Users/add.ctp -->
+<!-- src/Template/Users/edit.ctp -->
 
-	<?php $this->layout = "fundamenta"; ?>
+	<?php $this->layout = "fundamenta"; ?>		
 	<title>Modificar Usuario</title>
 	<div class="container">
 		
