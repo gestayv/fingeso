@@ -30,41 +30,75 @@
 						<div class="elementoHeader7">Estado Encuesta</div>
 						<div class="elementoHeader7">Seleccion</div>
 					</div>
+					
+					<?php foreach ($complaints as $complaint): ?>
 					<div class="fila">
-					<?php foreach ($admins as $admin): ?>
-						    <div class="elemento5">
-						    	<?php echo $admin->name; ?>
+						    <div class="elemento7">
+						    	<?php echo $complaint->id; ?>
 						    </div>
-						    <div class="elemento5">
-						    	<?php echo $admin->surname; ?>
+						    <div class="elemento7">
+						    	<?php echo $complaint->owner->name; ?>
 						    </div>
-						    <div class="elemento5">
-						    	<?php echo $admin->rut; ?>
+						    <div class="elemento7">
+						    	<?php echo $complaint->executor->name; ?>
 						    </div>
-						    <div class="elemento5">
-						    	<?php echo 'Administrador'; ?>
+						    <div class="elemento7">
+						    	<?php 
+						    		switch ($complaint->priority) {
+						    			case 1:
+						    				echo 'Mínima';
+						    				break;
+						    			
+						    			case 2:
+						    				echo 'Baja';
+						    				break;
+
+						    			case 3:
+						    				echo 'Media';
+						    				break;
+						    				
+						    			case 4:
+						    				echo 'Alta';
+						    				break;
+
+						    			case 5:
+						    				echo 'Urgente';
+						    				break;
+						    		}
+
+						    	?>
 						    </div>
-						    <div class="elemento5">	
-							<div class="elementbutton">
-								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
-							</div>
-							<div class="elementbutton">
-								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
-							</div>
-						</div>
-					<?php endforeach; ?>
-					</div>
-					<div class="fila">
-						<div class="elemento7">2.1</div>
-						<div class="elemento7">2.2</div>
-						<div class="elemento7">2.3</div>
-						<div class="elemento7">2.4</div>
-						<div class="elemento7">2.5</div>
-						<div class="elemento7">2.6</div>
-						<div class="elemento7">
+						    <div class="elemento7">
+						    	<?php
+						    		if($complaint->status == 0) 
+						    		{
+							    		echo 'Pendiente';
+						    		}
+						    		elseif ($complaint->status == 1) {
+						    			echo 'En progreso';
+						    		}
+						    		elseif ($complaint->status == 2) {
+						    			echo 'Resuelto';
+						    		}
+						    	?>
+						    </div>
+						    <div class="elemento7">
+						    	<?php
+						    		if($complaint->surveys[0]->status == 0) 
+						    		{
+							    		echo 'Pendiente';
+						    		}
+						    		elseif ($complaint->surveys[0]->status == 1) {
+						    			echo 'Resuelta';
+						    		}
+						    	?>
+						    </div>
+						    <div class="elemento7">
 							<label><input type="radio" id="q1" name="grupo" value="2">Seleccionar</label>
 						</div>
-					</div>	
+					</div>
+					
+					<?php endforeach; ?>
 				</div>
 
 				<!-- Botones de centro-->
