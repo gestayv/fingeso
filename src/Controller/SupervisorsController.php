@@ -26,21 +26,7 @@ class SupervisorsController extends AppController
         $complaints = $this->Complaints->find('all'
             , ['contain' => ['Owners', 'Executors', 'Surveys']]);
 
-        $this->set(compact('complaints'));
-
-        foreach ($complaints as $t) {
-            /*print_r($t->name);
-            echo '------';
-            print_r($t->owner->name);
-            echo '------';
-            print_r($t->executor->name);
-            echo '------';
-            */print_r($t->surveys[0]->id);
-            echo '<br>';
-            echo '<br>';
-            echo '<br>';    
-        }
-        
+        $this->set(compact('complaints'));        
     }
 
     /**
