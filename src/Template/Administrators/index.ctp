@@ -50,7 +50,10 @@
 						    </div>
 						    <div class="elemento5">	
 							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'administrators', $admin->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
 								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
 							</div>
 							<div class="elementbutton">
 								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
@@ -74,7 +77,10 @@
 						    </div>
 						    <div class="elemento5">	
 							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'owners',$owner->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
 								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
 							</div>
 							<div class="elementbutton">
 								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
@@ -98,7 +104,10 @@
 						    </div>
 						    <div class="elemento5">	
 							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'executors',$exec->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
 								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
 							</div>
 							<div class="elementbutton">
 								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
@@ -122,7 +131,10 @@
 						    </div>
 						    <div class="elemento5">	
 							<div class="elementbutton">
+								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'supervisors', $super->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<!--
 								<button class="btn btn-info " style="padding: 1px 10px;">Modificar</button>
+								-->
 							</div>
 							<div class="elementbutton">
 								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
