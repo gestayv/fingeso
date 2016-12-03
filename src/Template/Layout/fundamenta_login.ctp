@@ -10,24 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://s3.amazonaws.com/jetstrap-site/css/frame.css?10">
-    <style id="custom-css">#jumbo 
-        {
-          background-color: #333;
-          color: #eee;
-        }
-
-        #jumbo p 
-        {
-          font-size: 16px;
-        }
-        #try-header {
-          margin: 30px 0px;
-        }
-        #try-more {
-          margin: 30px 0px;
-          font-style: italic;
-        }
-    </style>
+    
 
     <script>
       parent.FrameWindow = window;
