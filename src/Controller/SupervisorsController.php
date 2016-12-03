@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
 
 /**
  * Supervisors Controller
@@ -19,7 +18,15 @@ class SupervisorsController extends AppController
      */
     public function index()
     {
-     
+        $this->loadModel('Complaints');
+        $this->loadModel('Owners');
+        $this->loadModel('Executors');
+        $this->loadModel('Surveys');
+
+        $complaints = $this->Complaints->find('all'
+            , ['contain' => ['Owners', 'Executors', 'Surveys']]);
+
+        $this->set(compact('complaints'));        
     }
 
     /**

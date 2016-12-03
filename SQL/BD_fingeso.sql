@@ -1,4 +1,4 @@
-/*==============================================================*/
+ /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
 /* Created on:     24-11-2016 17:24:38                          */
 /*==============================================================*/
@@ -17,7 +17,7 @@ drop table if exists executors;
 drop table if exists owners;
 
 drop table if exists complaints;
-
+   
 drop table if exists supervisors;
 
 /*==============================================================*/
@@ -26,8 +26,8 @@ drop table if exists supervisors;
 create table administrators
 (
    id             int not null AUTO_INCREMENT,
-   username				varchar(30),
-   password				varchar(256),
+   username       varchar(30),
+   password       varchar(256),
    name           varchar(50),
    surname        varchar(50),
    rut            varchar(12),
@@ -55,7 +55,6 @@ create table buildings
    supervisor_id     int not null,
    num               int not null,
    name              varchar(70) not null,
-   direccion         varchar(70) not null,
    street            varchar(70) not null,
    primary key (id)
 );
@@ -78,8 +77,8 @@ create table surveys
 create table executors
 (
    id                int not null AUTO_INCREMENT,
-   username				varchar(30),
-   password				varchar(256),
+   username          varchar(30),
+   password          varchar(256),
    name              varchar(50),
    surname           varchar(50),
    rut               varchar(12),
@@ -92,9 +91,9 @@ create table executors
 create table owners
 (
    id                   int not null AUTO_INCREMENT,
-   username				   varchar(30),
-   password			    	varchar(256),
    apartment_id         int not null,
+   username             varchar(30),
+   password             varchar(256),
    name                 varchar(50),
    surname              varchar(50),
    rut                  varchar(50),
@@ -125,9 +124,9 @@ create table complaints
 create table supervisors
 (
    id             int not null AUTO_INCREMENT,
-   username			varchar(30),
-   password	      varchar(256),   
    building_id    int,
+   username       varchar(30),
+   password       varchar(256),
    name           varchar(50),
    surname        varchar(50),
    rut            varchar(50),
@@ -211,12 +210,15 @@ INSERT INTO owners(username, password, name, surname, rut, apartment_id) VALUES
 INSERT INTO owners(username, password, name, surname, rut, apartment_id) VALUES
 ('owner_4', 'pass_4', 'Joseph', 'Joestar', 89495616, 4);
 
-INSERT INTO surveys(description, status) VALUES ('No sé que va aquí en realidad, esto es como un placeholder
-   salu2.', 1);
-INSERT INTO surveys(description, status) VALUES ('Otro placeholder, supongo que podría empezar a decir datos
-   interesantes acá, o mejor no.', 1);
-INSERT INTO surveys(description, status) VALUES ('Buena encuesta, +10 y a favoritos', 1);
-INSERT INTO surveys(description, status) VALUES ('Terrible encuesta, te deberían banear. Reportado.', 1);
+UPDATE apartments SET owner_id=1 WHERE id=1;
+UPDATE apartments SET owner_id=2 WHERE id=2;
+UPDATE apartments SET owner_id=3 WHERE id=3;
+UPDATE apartments SET owner_id=4 WHERE id=4;
+
+INSERT INTO surveys(description, status) VALUES ('', 0);
+INSERT INTO surveys(description, status) VALUES ('', 0);
+INSERT INTO surveys(description, status) VALUES ('', 0);
+
 
 INSERT INTO complaints(survey_id, owner_id, executor_id, priority, status, name, description) VALUES
 (1, 3, 2, 5, 1, 'Arreglo de cañeria', 'La cañeria del baño del propietario ha sido tapada con un objeto
@@ -227,3 +229,11 @@ INSERT INTO complaints(survey_id, owner_id, executor_id, priority, status, name,
 INSERT INTO complaints(survey_id, owner_id, executor_id, priority, status, name, description) VALUES
 (1, 4, 1, 5, 0, 'Papel mural quemado', 'La cocina del propietario explotó al haber expuesto una sustancia
    inflamable a uno de los quemadores. Se debe reemplazar el papel mural del área.');
+
+UPDATE complaints SET survey_id=1 WHERE id=1;
+UPDATE complaints SET survey_id=2 WHERE id=2;
+UPDATE complaints SET survey_id=3 WHERE id=3;
+
+UPDATE surveys SET complaint_id=1 WHERE id=1;
+UPDATE surveys SET complaint_id=2 WHERE id=2;
+UPDATE surveys SET complaint_id=3 WHERE id=3;

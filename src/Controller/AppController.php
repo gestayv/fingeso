@@ -63,6 +63,7 @@ class AppController extends Controller
        $this->Auth->allow(['index', 'view', 'display']);
     }
 
+
     /**
      * Before render callback.
      *

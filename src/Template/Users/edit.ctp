@@ -52,7 +52,10 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<!--
 					<button class="btn btn-primary pull-left" style="background:black;">Atras</button>
+					-->
+					<?= $this->Html->link('Atras', ['controller' => 'administrators', 'action' => 'index'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black;']); ?>
 					<button class="btn btn-primary pull-right" style="background:black;">Enviar</button>
 				</div>
 			</form>	
