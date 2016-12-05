@@ -25,8 +25,6 @@ class UsersController extends AppController
 
     public function view($id)
     {
-        $user = $this->Users->get($id);
-        $this->set(compact('user'));
     }
 
     public function add()
@@ -47,7 +45,34 @@ class UsersController extends AppController
 
     public function edit(/*string*/$tabla, /*int*/$id)
     {
-        
+        $this->loadModel('Administrators');
+        $this->loadModel('Owners');
+        $this->loadModel('Executors');
+        $this->loadModel('Supervisors');
+        if($tabla == 'administrators')
+        {
+            $user = $this->Administrators->find('all',
+                    ['conditions' => ['Administrators.id' => $id]]);
+             $this->set(compact('user'));
+        }
+        elseif($tabla == 'owners')
+        {
+            $user = $this->Owners->find('all',
+                    ['conditions' => ['Owners.id' => $id]]);
+             $this->set(compact('user'));
+        }
+        elseif($tabla == 'executors')
+        {
+            $user = $this->Executors->find('all',
+                    ['conditions' => ['Executors.id' => $id]]);
+            $this->set(compact('user'));
+        }
+        elseif($tabla == 'supervisors')
+        {
+            $user = $this->Supervisors->find('all',
+                    ['conditions' => ['Supervisors.id' => $id]]);
+            $this->set(compact('user'));
+        }
     }
 
     public function login()

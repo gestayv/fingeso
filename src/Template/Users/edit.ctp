@@ -10,7 +10,10 @@
 				<div class="form-group">
 					<label for="nombre" class="control-label col-md-2">Nombre:</label>
 					<div class="col-md-10">
-						<input type="text" id="nombre" class="form-control" placeholder="Nombre:">
+						<?php 
+							
+						echo $this->Form->text('Nombre', ['class' => 'form-control', 'id' => 'nombre', 'type' => 'text', 'placeholder' => 'Nombre', 'value' => $user->name]); ?>
+						<!-- <input type="text" id="nombre" class="form-control" placeholder="Nombre:"> -->
 					</div>
 				</div>
 				<div class="form-group">

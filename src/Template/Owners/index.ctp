@@ -1,41 +1,43 @@
 <?php $this->layout='fundamenta'?>
 	<!--Rectangulo de Reclamos-->
+	<title>Menu principal: Propietario</title>
 	<div class="container col-lg-offset-1 col-lg-9 col-md-offset-2 col-md-8">
 		<div class="tabla">
+
 			<div class="filaHeader">
 				<div class="elementoHeader4">Nombre/Tipo del Reclamo</div>
 				<div class="elementoHeader4">Fecha Emision</div>
 				<div class="elementoHeader4">Estado del Reclamo</div>
 				<div class="elementoHeader4">Encuesta de Satisfaccion</div>
 			</div>
+
+			<?php foreach ($complaints as $complaint): ?>
 			<div class="fila">
-				<div class="elemento4">1.1</div>
-				<div class="elemento4">1.2</div>
 				<div class="elemento4">
-					<div class="progress" style="width: 90% ">
-					  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40% ">
-					    40%
-					  </div>
-					</div>
+				<?php echo $complaint->name; ?>
 				</div>
 				<div class="elemento4">
-					<button class="btn btn-primary" disabled="">Responder Encuesta</button>
-				</div>
-			</div>
-			<div class="fila">
-				<div class="elemento4">2.1</div>
-				<div class="elemento4">2.2</div>
-				<div class="elemento4">
-					<div class="progress" style="width:  90% ">
-					  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100% ">
-					    100%
-					  </div>
-					</div>
+				<?php echo $complaint->emission_date; ?>
 				</div>
 				<div class="elemento4">
-					<button class="btn btn-primary">Responder Encuesta</button>
+					<?php
+			    		if($complaint->status == 0) 
+			    		{
+				    		echo 'Pendiente';
+			    		}
+			    		elseif ($complaint->status == 1) {
+			    			echo 'En progreso';
+			    		}
+			    		elseif ($complaint->status == 2) {
+			    			echo 'Resuelto';
+			    		}
+			    	?>
 				</div>
-			</div>
+				<div class="elemento4">
+					<?= $this->Html->link('Responder Encuestas', 'http://example.com/manifest', ['class' => 'btn btn-primary']); ?>
+				</div>
+			</div>	
+			<?php endforeach; ?>
 		</div>
 	</div>
 
@@ -43,9 +45,9 @@
 	<!-- Botones de centro?-->
 
 
-
+	
 	<div class="container">
 		<div class="col-md-offset-5" style="margin-top:200px;">
-			<button class="btn btn-primary" style="background:black">Realizar Reclamo</button>
+			<?= $this->Html->link('Realizar Reclamo', 'http://example.com/manifest', ['class' => 'btn btn-primary', 'style' => 'background:black']); ?>
 		</div>
 	</div>

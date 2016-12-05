@@ -18,17 +18,12 @@ class OwnersController extends AppController
      */
     public function index()
     {
-        $tests = $this->Owners->Complaints->find('all');
         
-        /*
-        foreach ($articles as $article): ?>
-    <tr>
-         $article->id 
-            <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
-        </td>
-        <td>
-            <?= $article->created->format(DATE_RFC850) ?>
-        */
+        $session = $this->request->session();
+        $id_user = $session->read('User.id');
+        $complaints = $this->Owners->Complaints->find('all',
+            ['conditions' => ['Complaints.owner_id' => $id_user]]);
+        $this->set(compact('complaints'));
     }
 
     /**
