@@ -16,7 +16,7 @@ class AdministratorsController extends AppController
     {
         parent::beforeFilter($event);
         $session = $this->request->session();
-        if($session->read('User_tipo') != 'admin')
+        if($session->read('User.tipo') != 'admin')
         {
             $this->Auth->deny();
             $this->redirect($this->referer());

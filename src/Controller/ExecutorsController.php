@@ -15,7 +15,7 @@ class ExecutorsController extends AppController
     {
         parent::beforeFilter($event);
         $session = $this->request->session();
-        if($session->read('User_tipo') != 'ejecutor')
+        if($session->read('User.tipo') != 'ejecutor')
         {
             $this->Auth->deny();
             $this->redirect($this->referer());

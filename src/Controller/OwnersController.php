@@ -15,7 +15,7 @@ class OwnersController extends AppController
     {
         parent::beforeFilter($event);
         $session = $this->request->session();
-        if($session->read('User_tipo') != 'propietario')
+        if($session->read('User.tipo') != 'propietario')
         {
             $this->Auth->deny();
             $this->redirect($this->referer());

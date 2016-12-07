@@ -18,11 +18,29 @@ class UsersController extends AppController
         // cause problems with normal functioning of AuthComponent.
         
         $this->Auth->allow(['add', 'logout', 'edit']);
-        /**/
     }
 
     public function add()
-    {
+    {   
+        $this->loadModel('Buildings');
+        $buildings = $this->Buildings->find('all');
+        $this->set(compact('buildings'));
+        
+        $datos = $this->request->data;
+        print_r($datos);
+        if(count($datos) > 0)
+        {
+            if($datos['tipoSubmit'] == 'Edificio')
+            {
+                $this->loadModel('Apartments');
+                $apart = $this->Apartments->find('all',
+                    ['conditions' => ['Apartments.id =' => $datos['tipoSubmit']]]);
+            }
+            elseif ($datos['tipoSubmit'] == 'Datos') 
+            {
+                // Guardar en la BD
+            }
+        }
         
     }
 
@@ -78,8 +96,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User_tipo','propietario');
                     $session->write('User',$user);
+                    $session->write('User.tipo','propietario');
 
                     return $this->redirect(['controller' => 'Owners', 'action' => 'index']);
                 }else{
@@ -100,9 +118,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User_tipo','ejecutor');
                     $session->write('User',$user);
-
+                    $session->write('User.tipo','ejecutor');
                     return $this->redirect(['controller' => 'Executors', 'action' => 'index']);
 
                 }else{
@@ -123,8 +140,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User_tipo','supervisor');
                     $session->write('User',$user);
+                    $session->write('User.tipo','supervisor');
 
                     return $this->redirect(['controller' => 'Supervisors', 'action' => 'index']);
                 }else{
@@ -145,8 +162,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User_tipo','admin');
                     $session->write('User',$user);
+                    $session->write('User.tipo','admin');
 
                     return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
                 }else{

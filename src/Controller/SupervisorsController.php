@@ -15,7 +15,7 @@ class SupervisorsController extends AppController
     {
         parent::beforeFilter($event);
         $session = $this->request->session();
-        if($session->read('User_tipo') != 'supervisor')
+        if($session->read('User.tipo') != 'supervisor')
         {
             $this->Auth->deny();
             $this->redirect($this->referer());
