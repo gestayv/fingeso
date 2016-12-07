@@ -16,31 +16,14 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
+        
         $this->Auth->allow(['add', 'logout', 'edit']);
-    }
-
-    public function index()
-    {
-    }
-
-    public function view($id)
-    {
+        /**/
     }
 
     public function add()
     {
-        /*
-        $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'add']);
-            }
-            $this->Flash->error(__('Unable to add the user.'));
-        }
-        $this->set('user', $user);
-        */
+        
     }
 
     public function edit(/*string*/$tabla, /*int*/$id)
@@ -95,7 +78,7 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','propietario');
+                    $session->write('User_tipo','propietario');
                     $session->write('User',$user);
 
                     return $this->redirect(['controller' => 'Owners', 'action' => 'index']);
@@ -117,7 +100,7 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','ejecutor');
+                    $session->write('User_tipo','ejecutor');
                     $session->write('User',$user);
 
                     return $this->redirect(['controller' => 'Executors', 'action' => 'index']);
@@ -140,7 +123,7 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','supervisor');
+                    $session->write('User_tipo','supervisor');
                     $session->write('User',$user);
 
                     return $this->redirect(['controller' => 'Supervisors', 'action' => 'index']);
@@ -162,7 +145,7 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','admin');
+                    $session->write('User_tipo','admin');
                     $session->write('User',$user);
 
                     return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);

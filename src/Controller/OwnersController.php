@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Owners Controller
@@ -10,6 +11,16 @@ use App\Controller\AppController;
  */
 class OwnersController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+        if($session->read('User_tipo') != 'propietario')
+        {
+            $this->Auth->deny();
+            $this->redirect($this->referer());
+        }
+    }
 
     /**
      * Index method

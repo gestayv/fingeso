@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Supervisors Controller
@@ -10,6 +11,16 @@ use App\Controller\AppController;
  */
 class SupervisorsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+        if($session->read('User_tipo') != 'supervisor')
+        {
+            $this->Auth->deny();
+            $this->redirect($this->referer());
+        }
+    }
 
     /**
      * Index method

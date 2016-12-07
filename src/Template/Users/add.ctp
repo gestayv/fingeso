@@ -6,6 +6,7 @@
 		
 		<section class="main-row">
 			<!-- Formulario -->
+			<?= $this->Form->create(NULL, ['class' => 'form-horizontal']); ?>
 			<form action="" class="form-horizontal">
 				<div class="form-group">
 					<label for="nombre" class="control-label col-md-2">Nombre:</label>
@@ -52,8 +53,11 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary pull-left" style="background:black;">Atras</button>
-					<button class="btn btn-primary pull-right" style="background:black;">Enviar</button>
+					<?= $this->Html->link('Atras', ['controller' => 'administrators', 'action' => 'index'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black']);
+					?>
+					<?=	$this->Form->button('Ingresar', ['type' => 'submit', 'class' => 'btn btn-primary pull-right', 'style' => 'background:black'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black']);
+						echo $this->Form->end();
+					?>
 				</div>
 			</form>	
 			

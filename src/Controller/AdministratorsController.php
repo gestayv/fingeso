@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Administrators Controller
@@ -10,6 +11,18 @@ use App\Controller\AppController;
  */
 class AdministratorsController extends AppController
 {
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+        if($session->read('User_tipo') != 'admin')
+        {
+            $this->Auth->deny();
+            $this->redirect($this->referer());
+        }
+    }
+
     /**
      * Index method
      *
