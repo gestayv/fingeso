@@ -10,22 +10,26 @@
 				<div class="form-group">
 					<label for="nombre" class="control-label col-md-2">Nombre:</label>
 					<div class="col-md-10">
-						<?php 
-							
-						echo $this->Form->text('Nombre', ['class' => 'form-control', 'id' => 'nombre', 'type' => 'text', 'placeholder' => 'Nombre', 'value' => $user->name]); ?>
-						<!-- <input type="text" id="nombre" class="form-control" placeholder="Nombre:"> -->
+						<?php
+						foreach ($user as $u) {}
+						echo $this->Form->text('Nombre', ['class' => 'form-control', 'name' => 'user_name', 'type' => 'text', 'value' => $u->name]);
+						?>
 					</div>
-				</div>
+				</div>	
 				<div class="form-group">
 					<label for="apellido" class="control-label col-md-2">Apellido:</label>
 					<div class="col-md-10">
-						<input type="text" id="apellido" class="form-control" placeholder="Apellido:">
+						<?php
+						echo $this->Form->text('Apellido', ['class' => 'form-control', 'name' => 'user_surname', 'type' => 'text', 'value' => $u->surname]); 
+						?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="rut" class="control-label col-md-2">Rut:</label>
 					<div class="col-md-10">
-						<input type="text" id="rut" class="form-control" placeholder="Rut:">
+						<?php
+						echo $this->Form->text('Rut', ['class' => 'form-control', 'name' => 'user_rut', 'type' => 'text', 'value' => $u->rut]); 
+						?>
 					</div>
 				</div>
 				<div class="form-group">
