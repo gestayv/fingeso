@@ -47,7 +47,15 @@ class UsersController extends AppController
 
     public function edit(/*string*/$tabla, /*int*/$id)
     {
-        
+        $this->set('userType',$tabla);
+        if ($tabla == 'owners'){
+            $table = TableRegistry::get('Owners');
+            $query = $table->find()
+                            ->select(['id', 'name'])
+                            ->order(['name'=>'ASC'])
+                            ->toArray();
+            $this->set('proyectos',$query);
+        }
     }
 
     public function login()
