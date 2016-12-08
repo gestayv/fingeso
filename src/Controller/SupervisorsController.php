@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
+use Cake\Event\Event;
 
 /**
  * Supervisors Controller
@@ -11,6 +11,16 @@ use Cake\ORM\TableRegistry;
  */
 class SupervisorsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+        if($session->read('User.tipo') != 'supervisor')
+        {
+            $this->Auth->deny();
+            $this->redirect($this->referer());
+        }
+    }
 
     /**
      * Index method
@@ -19,7 +29,15 @@ class SupervisorsController extends AppController
      */
     public function index()
     {
-     
+        $this->loadModel('Complaints');
+        $this->loadModel('Owners');
+        $this->loadModel('Executors');
+        $this->loadModel('Surveys');
+
+        $complaints = $this->Complaints->find('all'
+            , ['contain' => ['Owners', 'Executors', 'Surveys']]);
+
+        $this->set(compact('complaints'));        
     }
 
     /**

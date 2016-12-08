@@ -10,25 +10,32 @@
 				<div class="form-group">
 					<label for="nombre" class="control-label col-md-2">Nombre:</label>
 					<div class="col-md-10">
-						<input type="text" id="nombre" class="form-control" placeholder="Nombre">
+						<?php
+						foreach ($user as $u) {}
+						echo $this->Form->text('Nombre', ['class' => 'form-control', 'name' => 'user_name', 'type' => 'text', 'value' => $u->name]);
+						?>
 					</div>
-				</div>
+				</div>	
 				<div class="form-group">
 					<label for="apellido" class="control-label col-md-2">Apellido:</label>
 					<div class="col-md-10">
-						<input type="text" id="apellido" class="form-control" placeholder="Apellido">
+						<?php
+						echo $this->Form->text('Apellido', ['class' => 'form-control', 'name' => 'user_surname', 'type' => 'text', 'value' => $u->surname]); 
+						?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="rut" class="control-label col-md-2">Rut:</label>
 					<div class="col-md-10">
-						<input type="text" id="rut" class="form-control" placeholder="Rut">
+						<?php
+						echo $this->Form->text('Rut', ['class' => 'form-control', 'name' => 'user_rut', 'type' => 'text', 'value' => $u->rut]); 
+						?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="tipoU" class="control-label col-md-2">Tipo de Usuario:</label>
 					<div class="col-md-10 combobox">
-						<select name="" class="form-control" id="tipoU" disabled>
+						<select name="" class="form-control" id="tipoU">
 							<option value="1">Propietario</option>
 							<option value="2">Ejecutor</option>
 							<option value="3">Supervisor</option>
@@ -38,25 +45,24 @@
 				</div>
 				<!--Elementos que dependen del tipo de usuario: Si es Propietario se habilitan -->
 				<div class="form-group">
-					<?php if($userType=='owners'){
-					echo ('<label for="proyecto" class="control-label col-md-2">Edificio/Proyecto:</label>
-						<div class="col-md-10 combobox">
-						<select name="" class="form-control" id="proyecto">');
-					foreach ($proyectos as $edif) {
-						echo "<option value='",$edif['id'],"'>",$edif['nombre'],"</option>";
-					}
-					echo ('</select></div>');
-					} ?>
-				</div>
-				<div class="form-group">
-					<?php echo(($userType=='owners')?'<label for="dpto" class="control-label col-md-2">Departamento:</label>':"") ?>
-					
-					<div class="col-md-10">
-						<input <?php echo(($userType=='owners')?"type='text'":"type='hidden'") ?> id="dpto" class="form-control" placeholder="Departamento (Numero)" >
+					<label for="proyecto" class="control-label col-md-2">Edificio/Proyecto:</label>
+					<div class="col-md-10 combobox">
+						<select name="" class="form-control" id="proyecto" disabled="">
+				
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<a class="btn btn-primary pull-left" style="background:black;" href="/administrators">Atras</a>
+					<label for="dpto" class="control-label col-md-2">Departamento:</label>
+					<div class="col-md-10">
+						<input type="text" id="dpto" class="form-control" placeholder="Departamento (Numero):" disabled="">
+					</div>
+				</div>
+				<div class="form-group">
+					<!--
+					<button class="btn btn-primary pull-left" style="background:black;">Atras</button>
+					-->
+					<?= $this->Html->link('Atras', ['controller' => 'administrators', 'action' => 'index'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black;']); ?>
 					<button class="btn btn-primary pull-right" style="background:black;">Enviar</button>
 				</div>
 			</form>	

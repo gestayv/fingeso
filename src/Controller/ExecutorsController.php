@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Executors Controller
@@ -10,6 +11,16 @@ use App\Controller\AppController;
  */
 class ExecutorsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+        if($session->read('User.tipo') != 'ejecutor')
+        {
+            $this->Auth->deny();
+            $this->redirect($this->referer());
+        }
+    }
 
     /**
      * Index method

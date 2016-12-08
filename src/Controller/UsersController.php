@@ -30,31 +30,59 @@ class UsersController extends AppController
     }
 
     public function add()
-    {
-        /*
-        $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'add']);
+    {   
+        $this->loadModel('Buildings');
+        $buildings = $this->Buildings->find('all');
+        $this->set(compact('buildings'));
+        
+        $datos = $this->request->data;
+        print_r($datos);
+        if(count($datos) > 0)
+        {
+            if($datos['tipoSubmit'] == 'Edificio')
+            {
+                $this->loadModel('Apartments');
+                $apart = $this->Apartments->find('all',
+                    ['conditions' => ['Apartments.id =' => $datos['tipoSubmit']]]);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            elseif ($datos['tipoSubmit'] == 'Datos') 
+            {
+                // Guardar en la BD
+            }
         }
-        $this->set('user', $user);
-        */
+        
     }
 
     public function edit(/*string*/$tabla, /*int*/$id)
     {
-        $this->set('userType',$tabla);
-        if ($tabla == 'owners'){
-            $table = TableRegistry::get('Owners');
-            $query = $table->find()
-                            ->select(['id', 'name'])
-                            ->order(['name'=>'ASC'])
-                            ->toArray();
-            $this->set('proyectos',$query);
+        $this->loadModel('Administrators');
+        $this->loadModel('Owners');
+        $this->loadModel('Executors');
+        $this->loadModel('Supervisors');
+
+        if($tabla == 'administrators')
+        {
+            $user = $this->Administrators->find('all',
+                    ['conditions' => ['Administrators.id =' => $id]]);
+            $this->set(compact('user'));
+        }
+        elseif($tabla == 'owners')
+        {
+            $user = $this->Owners->find('all',
+                    ['conditions' => ['Owners.id =' => $id]]);
+            $this->set(compact('user'));
+        }
+        elseif($tabla == 'executors')
+        {
+            $user = $this->Executors->find('all',
+                    ['conditions' => ['Executors.id =' => $id]]);
+            $this->set(compact('user'));
+        }
+        elseif($tabla == 'supervisors')
+        {
+            $user = $this->Supervisors->find('all',
+                    ['conditions' => ['Supervisors.id =' => $id]]);
+            $this->set(compact('user'));
         }
     }
 
@@ -77,8 +105,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','propietario');
                     $session->write('User',$user);
+                    $session->write('User.tipo','propietario');
 
                     return $this->redirect(['controller' => 'Owners', 'action' => 'index']);
                 }else{
@@ -99,9 +127,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','ejecutor');
                     $session->write('User',$user);
-
+                    $session->write('User.tipo','ejecutor');
                     return $this->redirect(['controller' => 'Executors', 'action' => 'index']);
 
                 }else{
@@ -122,8 +149,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','supervisor');
                     $session->write('User',$user);
+                    $session->write('User.tipo','supervisor');
 
                     return $this->redirect(['controller' => 'Supervisors', 'action' => 'index']);
                 }else{
@@ -144,9 +171,8 @@ class UsersController extends AppController
 
                 if ($query){
                     $user = $query->toArray();
-                    $session->write('User.tipo','admin');
                     $session->write('User',$user);
-
+                    $session->write('User.tipo','admin');
                     return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
                 }else{
                     $this->Flash->set('Nombre de usuario o contraseña incorrecta');

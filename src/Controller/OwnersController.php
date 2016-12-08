@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Owners Controller
@@ -10,6 +11,16 @@ use App\Controller\AppController;
  */
 class OwnersController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $session = $this->request->session();
+        if($session->read('User.tipo') != 'propietario')
+        {
+            $this->Auth->deny();
+            $this->redirect($this->referer());
+        }
+    }
 
     /**
      * Index method
@@ -18,17 +29,12 @@ class OwnersController extends AppController
      */
     public function index()
     {
-        $tests = $this->Owners->Complaints->find('all');
         
-        /*
-        foreach ($articles as $article): ?>
-    <tr>
-         $article->id 
-            <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
-        </td>
-        <td>
-            <?= $article->created->format(DATE_RFC850) ?>
-        */
+        $session = $this->request->session();
+        $id_user = $session->read('User.id');
+        $complaints = $this->Owners->Complaints->find('all',
+            ['conditions' => ['Complaints.owner_id' => $id_user]]);
+        $this->set(compact('complaints'));
     }
 
     /**

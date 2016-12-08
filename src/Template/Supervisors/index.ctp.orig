@@ -1,9 +1,7 @@
 <?php $this->layout='fundamenta'?>	
 
-	<br>
-	<br>
 	<title>Menu principal: Supervisor</title>
-	<div class="">
+	<div class="content">
 		
 		<section class="main-row">
 			<!--Buscador -->
@@ -33,6 +31,7 @@
 					
 					<?php foreach ($complaints as $complaint): ?>
 					<div class="fila">
+<<<<<<< HEAD
 						    <div class="elemento7">
 						    	<?php echo $complaint->id; ?>
 						    </div>
@@ -93,14 +92,24 @@
 						    		}
 						    	?>
 						    </div>
-						    <div class="button7">
-								<div class="elementudbutton">
-									<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Asignar Ejecutor</button>
-								</div>
-								<div class="elementudbutton">
-									<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Revisar Encuesta</button>
-								</div>
+						    <div class="elemento7">
+							<label><input type="radio" id="q1" name="grupo" value="2">Seleccionar</label>
+=======
+						<div class="elemento7">2.1</div>
+						<div class="elemento7">2.2</div>
+						<div class="elemento7">2.3</div>
+						<div class="elemento7">2.4</div>
+						<div class="elemento7">2.5</div>
+						<div class="elemento7">2.6</div>
+						<div class="button7">
+							<div class="elementudbutton">
+								<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Asignar Ejecutor</button>
 							</div>
+							<div class="elementudbutton">
+								<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Revisar Encuesta</button>
+							</div>
+>>>>>>> c25789ed810b3aae2e6ea36a82c7c82c66500690
+						</div>
 					</div>
 					
 					<?php endforeach; ?>
