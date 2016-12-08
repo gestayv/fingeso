@@ -36,14 +36,19 @@ class UsersController extends AppController
         $this->set(compact('buildings'));
         
         $datos = $this->request->data;
-        print_r($datos);
         if(count($datos) > 0)
         {
             if($datos['tipoSubmit'] == 'Edificio')
             {
+                $this->set('formData',$datos);
                 $this->loadModel('Apartments');
-                $apart = $this->Apartments->find('all',
-                    ['conditions' => ['Apartments.id =' => $datos['tipoSubmit']]]);
+                $apartments = $this->Apartments->find('all',
+                    ['conditions' => ['Apartments.id =' => $datos['edificio']]]);
+                if($apartments->isEmpty()){
+                    $this->set('sinDptos','');
+                }else{
+                    $this->set(compact('apartments'));
+                }
             }
             elseif ($datos['tipoSubmit'] == 'Datos') 
             {
