@@ -6,7 +6,7 @@
 		
 		<section class="main-row">
 			<!-- Formulario -->
-			<form action="" class="form-horizontal">
+			<form action="/users/edit/" class="form-horizontal">
 				<div class="form-group">
 					<label for="nombre" class="control-label col-md-2">Nombre:</label>
 					<div class="col-md-10">

@@ -16,8 +16,17 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        
         $this->Auth->allow(['add', 'logout', 'edit']);
+    }
+
+    public function index()
+    {
+    }
+
+    public function view($id)
+    {
+        $user = $this->Users->get($id);
+        $this->set(compact('user'));
     }
 
     public function add()
@@ -27,14 +36,19 @@ class UsersController extends AppController
         $this->set(compact('buildings'));
         
         $datos = $this->request->data;
-        print_r($datos);
         if(count($datos) > 0)
         {
             if($datos['tipoSubmit'] == 'Edificio')
             {
+                $this->set('formData',$datos);
                 $this->loadModel('Apartments');
-                $apart = $this->Apartments->find('all',
-                    ['conditions' => ['Apartments.id =' => $datos['tipoSubmit']]]);
+                $apartments = $this->Apartments->find('all',
+                    ['conditions' => ['Apartments.id =' => $datos['edificio']]]);
+                if($apartments->isEmpty()){
+                    $this->set('sinDptos','');
+                }else{
+                    $this->set(compact('apartments'));
+                }
             }
             elseif ($datos['tipoSubmit'] == 'Datos') 
             {
@@ -164,7 +178,6 @@ class UsersController extends AppController
                     $user = $query->toArray();
                     $session->write('User',$user);
                     $session->write('User.tipo','admin');
-
                     return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
                 }else{
                     $this->Flash->set('Nombre de usuario o contraseña incorrecta');
