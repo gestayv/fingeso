@@ -27,7 +27,10 @@ class ComplaintsTableTest extends TestCase
         'app.complaints',
         'app.surveys',
         'app.executors',
-        'app.owners'
+        'app.owners',
+        'app.apartments',
+        'app.buildings',
+        'app.supervisors'
     ];
 
     /**

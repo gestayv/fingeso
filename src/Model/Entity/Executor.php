@@ -9,9 +9,9 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $username
  * @property string $password
- * @property string $NAME_EX
- * @property int $AGE_EX
- * @property string $RUT_EX
+ * @property string $name
+ * @property string $surname
+ * @property string $rut
  *
  * @property \App\Model\Entity\Complaint[] $complaints
  */

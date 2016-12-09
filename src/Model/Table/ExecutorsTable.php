@@ -60,14 +60,13 @@ class ExecutorsTable extends Table
             ->allowEmpty('password');
 
         $validator
-            ->allowEmpty('NAME_EX');
+            ->allowEmpty('name');
 
         $validator
-            ->integer('AGE_EX')
-            ->allowEmpty('AGE_EX');
+            ->allowEmpty('surname');
 
         $validator
-            ->allowEmpty('RUT_EX');
+            ->allowEmpty('rut');
 
         return $validator;
     }
@@ -84,9 +83,5 @@ class ExecutorsTable extends Table
         $rules->add($rules->isUnique(['username']));
 
         return $rules;
-    }
-
-    public function index()
-    {
     }
 }

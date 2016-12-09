@@ -54,14 +54,13 @@ class AdministratorsTable extends Table
             ->allowEmpty('password');
 
         $validator
-            ->allowEmpty('NAME_ADMIN');
+            ->allowEmpty('name');
 
         $validator
-            ->integer('AGE_ADMIN')
-            ->allowEmpty('AGE_ADMIN');
+            ->allowEmpty('surname');
 
         $validator
-            ->allowEmpty('RUT_ADMIN');
+            ->allowEmpty('rut');
 
         return $validator;
     }
@@ -78,9 +77,5 @@ class AdministratorsTable extends Table
         $rules->add($rules->isUnique(['username']));
 
         return $rules;
-    }
-
-    public function index()
-    {   
     }
 }

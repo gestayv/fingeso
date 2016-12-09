@@ -26,7 +26,11 @@ class ApartmentsTableTest extends TestCase
     public $fixtures = [
         'app.apartments',
         'app.buildings',
-        'app.owners'
+        'app.supervisors',
+        'app.owners',
+        'app.complaints',
+        'app.surveys',
+        'app.executors'
     ];
 
     /**

@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Owners Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Apartments
  * @property \Cake\ORM\Association\HasMany $Apartments
  * @property \Cake\ORM\Association\HasMany $Complaints
  *
@@ -38,9 +37,6 @@ class OwnersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->belongsTo('Apartments', [
-            'foreignKey' => 'apartment_id'
-        ]);
         $this->hasMany('Apartments', [
             'foreignKey' => 'owner_id'
         ]);
@@ -68,14 +64,13 @@ class OwnersTable extends Table
             ->allowEmpty('password');
 
         $validator
-            ->allowEmpty('NAME_OWNER');
+            ->allowEmpty('name');
 
         $validator
-            ->allowEmpty('RUT_OWNER');
+            ->allowEmpty('surname');
 
         $validator
-            ->integer('AGE_OWNER')
-            ->allowEmpty('AGE_OWNER');
+            ->allowEmpty('rut');
 
         return $validator;
     }
@@ -90,9 +85,7 @@ class OwnersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['apartment_id'], 'Apartments'));
 
         return $rules;
     }
-
 }

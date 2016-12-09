@@ -20,6 +20,15 @@ class OwnersController extends AppController
             $this->Auth->deny();
             $this->redirect($this->referer());
         }
+        else
+        {
+            $this->Auth->allow();
+        }
+    }
+
+    public function survey()
+    {
+        
     }
 
     /**

@@ -9,8 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $building_id
  * @property int $owner_id
- * @property string $DIR_DEPTO
- * @property int $NUMERO_DEPTO
+ * @property int $num
  *
  * @property \App\Model\Entity\Building $building
  * @property \App\Model\Entity\Owner[] $owners

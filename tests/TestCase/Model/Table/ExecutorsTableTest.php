@@ -27,7 +27,10 @@ class ExecutorsTableTest extends TestCase
         'app.executors',
         'app.complaints',
         'app.surveys',
-        'app.owners'
+        'app.owners',
+        'app.apartments',
+        'app.buildings',
+        'app.supervisors'
     ];
 
     /**
@@ -80,6 +83,16 @@ class ExecutorsTableTest extends TestCase
      * @return void
      */
     public function testBuildRules()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test index method
+     *
+     * @return void
+     */
+    public function testIndex()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

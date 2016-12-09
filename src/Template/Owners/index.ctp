@@ -34,7 +34,7 @@
 			    	?>
 				</div>
 				<div class="elemento4">
-					<?= $this->Html->link('Responder Encuestas', 'http://example.com/manifest', ['class' => 'btn btn-primary']); ?>
+					<?= $this->Html->link('Responder Encuestas', ['action' => 'survey'], ['class' => 'btn btn-primary']); ?>
 				</div>
 			</div>	
 			<?php endforeach; ?>
@@ -48,6 +48,6 @@
 	
 	<div class="container">
 		<div class="col-md-offset-5" style="margin-top:200px;">
-			<?= $this->Html->link('Realizar Reclamo', 'http://example.com/manifest', ['class' => 'btn btn-primary', 'style' => 'background:black']); ?>
+			<?= $this->Html->link('Realizar Reclamo', ['controller' => 'complaints', 'action' => 'add'], ['class' => 'btn btn-primary', 'style' => 'background:black']); ?>
 		</div>
 	</div>

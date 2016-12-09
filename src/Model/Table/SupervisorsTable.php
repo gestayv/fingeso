@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Supervisors Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Buildings
  * @property \Cake\ORM\Association\HasMany $Buildings
  *
  * @method \App\Model\Entity\Supervisor get($primaryKey, $options = [])
@@ -37,9 +36,6 @@ class SupervisorsTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->belongsTo('Buildings', [
-            'foreignKey' => 'building_id'
-        ]);
         $this->hasMany('Buildings', [
             'foreignKey' => 'supervisor_id'
         ]);
@@ -64,14 +60,13 @@ class SupervisorsTable extends Table
             ->allowEmpty('password');
 
         $validator
-            ->allowEmpty('NAME_SUPER');
+            ->allowEmpty('name');
 
         $validator
-            ->allowEmpty('RUT_SUPER');
+            ->allowEmpty('surname');
 
         $validator
-            ->integer('AGE_SUPER')
-            ->allowEmpty('AGE_SUPER');
+            ->allowEmpty('rut');
 
         return $validator;
     }
@@ -86,7 +81,6 @@ class SupervisorsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['building_id'], 'Buildings'));
 
         return $rules;
     }

@@ -53,7 +53,7 @@ class UsersController extends AppController
             elseif ($datos['tipoSubmit'] == 'Datos') 
             {
                 // Guardar en la BD
-                print_r($datos);
+                
             }
         }
         

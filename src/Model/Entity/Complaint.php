@@ -7,11 +7,15 @@ use Cake\ORM\Entity;
  * Complaint Entity
  *
  * @property int $id
- * @property int $survey_id
- * @property int $executor_id
  * @property int $owner_id
- * @property string $DESCRIPCION_RECLAMO
- * @property int $PRIORIDAD_RECLAMO
+ * @property int $executor_id
+ * @property int $apartment_id
+ * @property int $priority
+ * @property int $status
+ * @property string $name
+ * @property string $description
+ * @property \Cake\I18n\Time $availability_date
+ * @property \Cake\I18n\Time $emission_date
  *
  * @property \App\Model\Entity\Survey[] $surveys
  * @property \App\Model\Entity\Executor $executor

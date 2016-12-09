@@ -8,7 +8,8 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $complaint_id
- * @property string $DESCRIPCION_ENCUESTA
+ * @property int $status
+ * @property string $description
  *
  * @property \App\Model\Entity\Complaint[] $complaints
  */
