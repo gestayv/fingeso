@@ -80,6 +80,7 @@
 	{
 	    document.getElementById("tipoSubmit").value = 'Edificio'
 	    document.getElementById('formulario').submit();
+	    return false;
 	}
 </script>
 <script>
