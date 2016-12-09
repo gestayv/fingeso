@@ -73,9 +73,6 @@
 				<div class="form-group">
 					<?= $this->Html->link('Atras', ['controller' => 'administrators', 'action' => 'index'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black']);
 					?>
-					<?php	
-						/*$this->Html->link('Ingresar', ['controller' => 'users', 'action' => 'add'],['class' => 'btn btn-primary pull-right', 'onclick' =>'submitForm2()', 'style' => 'background:black']);*/
-					?>
 					<button class="btn btn-primary pull-right" style="background:black;" onclick="submitForm2()">Ingresar</button>
 					<?=
 						$this->Form->end();
@@ -87,15 +84,46 @@
 <script >
 	function submitForm1() 
 	{
-	    document.getElementById("tipoSubmit").value = 'Edificio'
+	    document.getElementById("tipoSubmit").value = 'Edificio';
 	    document.getElementById('formulario').submit();
-	    return false;
 	}
-</script>
-<script>
+	
 	function submitForm2() 
 	{
-	    document.getElementById("tipoSubmit").value = 'Datos'
+	    document.getElementById("tipoSubmit").value = 'Datos';
 	    document.getElementById('formulario').submit();
+	}
+
+	window.onload = function()
+	{
+		var x = document.getElementById("tipoU").value;
+		if(x == 1)
+		{
+			document.getElementById("proyecto").disabled = false;
+			document.getElementById("dpto").disabled = false;
+		}
+		else
+		{
+			document.getElementById("proyecto").disabled = true;
+			document.getElementById("dpto").disabled = true;	
+		}	
+		document.getElementById("tipoU").onchange = filtroUser;
+	}
+
+	function filtroUser()
+	{
+		var tipo = document.getElementById("tipoU").value;
+		if(tipo == 1)
+		{
+			document.getElementById("proyecto").disabled = false;
+			document.getElementById("dpto").disabled = false;
+		}
+		else
+		{
+			document.getElementById("proyecto").disabled = true;
+			document.getElementById("dpto").disabled = true;
+			document.getElementById("proyecto").value = 0;
+			document.getElementById("dpto").value = 0;
+		}
 	}
 </script>
