@@ -20,6 +20,15 @@ class SupervisorsController extends AppController
             $this->Auth->deny();
             $this->redirect($this->referer());
         }
+        else
+        {
+            $this->Auth->allow();
+        }
+    }
+
+    public function assign()
+    {
+
     }
 
     /**

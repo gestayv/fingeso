@@ -95,7 +95,7 @@
 						    </div>
 						    <div class="button7">
 								<div class="elementudbutton">
-									<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Asignar Ejecutor</button>
+								<?= $this->Html->link('Asignar Ejecutor', ['action' => 'assign', $complaint->id], ['class' => 'btn btn-primary', 'style' => 'background:black;padding:1px 5px;font-size:10px']); ?>
 								</div>
 								<div class="elementudbutton">
 									<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Revisar Encuesta</button>

@@ -35,4 +35,9 @@ class ComplaintsController extends AppController
     {
     }
 
+    public function survey()
+    {
+        
+    }
+
 }

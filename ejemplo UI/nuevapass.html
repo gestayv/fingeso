@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nueva Contraseña</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+
+	<br><br>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+	<!--Inputs:
+		oldpass: Contraseña Actual/Antigua 
+		newpass1: Contraseña Nueva
+		newpass2: Confirmación nueva contraseña -->
+
+	<div class="container">
+		<section class="col-md-offset-1 main-row">
+			<form action="" class="form-horizontal">
+				<div class="form-group">
+					<label for="" class="label-control col-md-3">Contrasena Actual:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="password" name="oldpass" placeholder="Ingrese su contraseña actual:">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="" class="label-control col-md-3">Nueva Contrasena:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="password" name="newpass1" placeholder="Ingrese la nueva contraseña:">
+					</div>
+					<p style="color:white" class="help-block col-md-5">Su contraseña no puede tener mas de 30 caracteres.</p>
+
+				</div>	
+
+				<div class="form-group">
+					<label for="" class="label-control col-md-3">Confirme la nueva Contrasena</label>
+					<div class="col-md-4">
+						<input class="form-control" type="password" name="newpass2" placeholder="Confirme su contraseña:">
+					</div>
+				</div>			
+
+
+
+				<div class="form-group">
+					<div class="pull-right">
+						<button style="background-color:black;color:white" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>						
+			</form>
+		</section>
+
+	</div>
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
