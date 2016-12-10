@@ -29,8 +29,8 @@ class SupervisorsTableTest extends TestCase
         'app.apartments',
         'app.owners',
         'app.complaints',
-        'app.surveys',
-        'app.executors'
+        'app.executors',
+        'app.surveys'
     ];
 
     /**

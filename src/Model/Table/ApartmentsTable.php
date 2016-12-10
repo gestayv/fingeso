@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Buildings
  * @property \Cake\ORM\Association\BelongsTo $Owners
- * @property \Cake\ORM\Association\HasMany $Owners
+ * @property \Cake\ORM\Association\HasMany $Complaints
  *
  * @method \App\Model\Entity\Apartment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Apartment newEntity($data = null, array $options = [])
@@ -45,7 +45,7 @@ class ApartmentsTable extends Table
         $this->belongsTo('Owners', [
             'foreignKey' => 'owner_id'
         ]);
-        $this->hasMany('Owners', [
+        $this->hasMany('Complaints', [
             'foreignKey' => 'apartment_id'
         ]);
     }
@@ -63,13 +63,9 @@ class ApartmentsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('DIR_DEPTO', 'create')
-            ->notEmpty('DIR_DEPTO');
-
-        $validator
-            ->integer('NUMERO_DEPTO')
-            ->requirePresence('NUMERO_DEPTO', 'create')
-            ->notEmpty('NUMERO_DEPTO');
+            ->integer('num')
+            ->requirePresence('num', 'create')
+            ->notEmpty('num');
 
         return $validator;
     }

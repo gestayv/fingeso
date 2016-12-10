@@ -9,9 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Complaints Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Surveys
- * @property \Cake\ORM\Association\BelongsTo $Executors
  * @property \Cake\ORM\Association\BelongsTo $Owners
+ * @property \Cake\ORM\Association\BelongsTo $Executors
+ * @property \Cake\ORM\Association\BelongsTo $Apartments
  * @property \Cake\ORM\Association\HasMany $Surveys
  *
  * @method \App\Model\Entity\Complaint get($primaryKey, $options = [])
@@ -36,18 +36,17 @@ class ComplaintsTable extends Table
         parent::initialize($config);
 
         $this->table('complaints');
-        $this->displayField('id');
+        $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->belongsTo('Surveys', [
-            'foreignKey' => 'survey_id',
-            'joinType' => 'INNER'
+        $this->belongsTo('Owners', [
+            'foreignKey' => 'owner_id'
         ]);
         $this->belongsTo('Executors', [
             'foreignKey' => 'executor_id'
         ]);
-        $this->belongsTo('Owners', [
-            'foreignKey' => 'owner_id'
+        $this->belongsTo('Apartments', [
+            'foreignKey' => 'apartment_id'
         ]);
         $this->hasMany('Surveys', [
             'foreignKey' => 'complaint_id'
@@ -67,11 +66,26 @@ class ComplaintsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('DESCRIPCION_RECLAMO');
+            ->integer('priority')
+            ->allowEmpty('priority');
 
         $validator
-            ->integer('PRIORIDAD_RECLAMO')
-            ->allowEmpty('PRIORIDAD_RECLAMO');
+            ->integer('status')
+            ->allowEmpty('status');
+
+        $validator
+            ->allowEmpty('name');
+
+        $validator
+            ->allowEmpty('description');
+
+        $validator
+            ->dateTime('availability_date')
+            ->allowEmpty('availability_date');
+
+        $validator
+            ->dateTime('emission_date')
+            ->allowEmpty('emission_date');
 
         return $validator;
     }
@@ -85,9 +99,9 @@ class ComplaintsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['survey_id'], 'Surveys'));
-        $rules->add($rules->existsIn(['executor_id'], 'Executors'));
         $rules->add($rules->existsIn(['owner_id'], 'Owners'));
+        $rules->add($rules->existsIn(['executor_id'], 'Executors'));
+        $rules->add($rules->existsIn(['apartment_id'], 'Apartments'));
 
         return $rules;
     }

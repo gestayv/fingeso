@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Supervisors
  * @property \Cake\ORM\Association\HasMany $Apartments
- * @property \Cake\ORM\Association\HasMany $Supervisors
  *
  * @method \App\Model\Entity\Building get($primaryKey, $options = [])
  * @method \App\Model\Entity\Building newEntity($data = null, array $options = [])
@@ -35,7 +34,7 @@ class BuildingsTable extends Table
         parent::initialize($config);
 
         $this->table('buildings');
-        $this->displayField('id');
+        $this->displayField('name');
         $this->primaryKey('id');
 
         $this->belongsTo('Supervisors', [
@@ -43,9 +42,6 @@ class BuildingsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Apartments', [
-            'foreignKey' => 'building_id'
-        ]);
-        $this->hasMany('Supervisors', [
             'foreignKey' => 'building_id'
         ]);
     }
@@ -63,13 +59,17 @@ class BuildingsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('NUM_EDIFICIO')
-            ->requirePresence('NUM_EDIFICIO', 'create')
-            ->notEmpty('NUM_EDIFICIO');
+            ->integer('num')
+            ->requirePresence('num', 'create')
+            ->notEmpty('num');
 
         $validator
-            ->requirePresence('DIR_EDIFICIO', 'create')
-            ->notEmpty('DIR_EDIFICIO');
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
+
+        $validator
+            ->requirePresence('street', 'create')
+            ->notEmpty('street');
 
         return $validator;
     }

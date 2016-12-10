@@ -9,9 +9,9 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $username
  * @property string $password
- * @property string $NAME_ADMIN
- * @property int $AGE_ADMIN
- * @property string $RUT_ADMIN
+ * @property string $name
+ * @property string $surname
+ * @property string $rut
  */
 class Administrator extends Entity
 {

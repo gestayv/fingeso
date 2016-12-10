@@ -20,8 +20,7 @@ class ApartmentsFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'building_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'owner_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'DIR_DEPTO' => ['type' => 'string', 'length' => 70, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'NUMERO_DEPTO' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'num' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
             'FK_POSEE2' => ['type' => 'index', 'columns' => ['owner_id'], 'length' => []],
             'FK_SE_COMPONE_DE' => ['type' => 'index', 'columns' => ['building_id'], 'length' => []],
@@ -33,7 +32,7 @@ class ApartmentsFixture extends TestFixture
         ],
         '_options' => [
             'engine' => 'InnoDB',
-            'collation' => 'latin1_swedish_ci'
+            'collation' => 'utf8_general_ci'
         ],
     ];
     // @codingStandardsIgnoreEnd
@@ -48,8 +47,7 @@ class ApartmentsFixture extends TestFixture
             'id' => 1,
             'building_id' => 1,
             'owner_id' => 1,
-            'DIR_DEPTO' => 'Lorem ipsum dolor sit amet',
-            'NUMERO_DEPTO' => 1
+            'num' => 1
         ],
     ];
 }
