@@ -146,7 +146,7 @@ create table supervisors
 
 
 alter table apartments add constraint FK_POSEE2 foreign key (owner_id)
-      references owners (id) on delete restrict on update restrict;
+      references owners (id) on delete set null on update set null;
 
 alter table apartments add constraint FK_SE_COMPONE_DE foreign key (building_id)
       references buildings (id) on delete CASCADE on update CASCADE;
@@ -161,7 +161,7 @@ alter table complaints add constraint FK_REALIZA foreign key (owner_id)
       references owners (id) on delete CASCADE on update CASCADE;
 
 alter table complaints add constraint FK_REPARA foreign key (executor_id)
-      references executors (id) on delete restrict on update restrict;
+      references executors (id) on delete set null on update set null;
 
 alter table complaints add constraint FK_OCURRE_EN foreign key (apartment_id)
       references apartments (id) on delete CASCADE on update CASCADE;
