@@ -70,24 +70,35 @@ class UsersController extends AppController
         {
             $user = $this->Administrators->find('all',
                     ['conditions' => ['Administrators.id =' => $id]]);
+            foreach ($user as $u) {
+                print_r($u);    
+            }
+            $tipo = 4;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'owners')
         {
             $user = $this->Owners->find('all',
                     ['conditions' => ['Owners.id =' => $id]]);
+            $tipo = 1;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'executors')
         {
             $user = $this->Executors->find('all',
                     ['conditions' => ['Executors.id =' => $id]]);
+            $tipo = 2;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'supervisors')
         {
             $user = $this->Supervisors->find('all',
                     ['conditions' => ['Supervisors.id =' => $id]]);
+            $tipo = 3;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
     }

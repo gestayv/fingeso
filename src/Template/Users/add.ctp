@@ -14,19 +14,19 @@
 					<label for="nombre" class="control-label col-md-2">Nombre</label>
 					<div class="col-md-10">
 					<input type="hidden" name="tipoSubmit" id="tipoSubmit" class="form-control" value="default">
-						<input type="text" name="name" id="nombre" class="form-control" placeholder="Nombre" <?php if((isset($formData))) echo 'value="',$formData['name'],'"';?> >
+						<input type="text" maxlength="50" name="name" id="nombre" class="form-control" placeholder="Nombre" <?php if((isset($formData))) echo 'value="',$formData['name'],'"';?> >
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="apellido" class="control-label col-md-2">Apellido</label>
 					<div class="col-md-10">
-						<input type="text" name="surname" id="apellido" class="form-control" placeholder="Apellido" <?php if((isset($formData))) echo 'value="',$formData['surname'],'"';?>>
+						<input type="text" maxlength="50" name="surname" id="apellido" class="form-control" placeholder="Apellido" <?php if((isset($formData))) echo 'value="',$formData['surname'],'"';?>>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="rut" class="control-label col-md-2">Rut</label>
 					<div class="col-md-10">
-						<input type="text" name="rut" id="rut" class="form-control" placeholder="12345678-9" <?php if((isset($formData))) echo 'value="',$formData['rut'],'"';?>>
+						<input type="text" maxlength="12" name="rut" id="rut" class="form-control" placeholder="12345678-9" <?php if((isset($formData))) echo 'value="',$formData['rut'],'"';?>>
 					</div>
 				</div>
 				<div class="form-group">
@@ -73,7 +73,7 @@
 				<div class="form-group">
 					<?= $this->Html->link('Atras', ['controller' => 'administrators', 'action' => 'index'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black']);
 					?>
-					<button class="btn btn-primary pull-right" style="background:black;" onclick="submitForm2()">Ingresar</button>
+					<button class="btn btn-primary pull-right" style="background:black;" type="submit">Ingresar</button>
 					<?=
 						$this->Form->end();
 					?>
