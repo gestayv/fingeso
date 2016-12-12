@@ -26,7 +26,7 @@ drop table if exists supervisors;
 create table administrators
 (
    id             int not null AUTO_INCREMENT,
-   username       varchar(30),
+   username       varchar(50),
    password       varchar(256),
    name           varchar(50),
    surname        varchar(50),
@@ -77,7 +77,7 @@ create table surveys
 create table executors
 (
    id                int not null AUTO_INCREMENT,
-   username          varchar(30),
+   username          varchar(50),
    password          varchar(256),
    name              varchar(50),
    surname           varchar(50),
@@ -91,7 +91,7 @@ create table executors
 create table owners
 (
    id                   int not null AUTO_INCREMENT,
-   username             varchar(30),
+   username             varchar(50),
    password             varchar(256),
    name                 varchar(50),
    surname              varchar(50),
@@ -136,7 +136,7 @@ create table schedules
 create table supervisors
 (
    id             int not null AUTO_INCREMENT,
-   username       varchar(30),
+   username       varchar(50),
    password       varchar(256),
    name           varchar(50),
    surname        varchar(50),
