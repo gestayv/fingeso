@@ -12,7 +12,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $street
  *
- * @property \App\Model\Entity\Supervisor[] $supervisors
+ * @property \App\Model\Entity\Supervisor $supervisor
  * @property \App\Model\Entity\Apartment[] $apartments
  */
 class Building extends Entity

@@ -36,7 +36,7 @@ class ComplaintsTable extends Table
         parent::initialize($config);
 
         $this->table('complaints');
-        $this->displayField('id');
+        $this->displayField('name');
         $this->primaryKey('id');
 
         $this->belongsTo('Owners', [

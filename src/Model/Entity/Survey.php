@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property int $status
  * @property string $description
  *
- * @property \App\Model\Entity\Complaint[] $complaints
+ * @property \App\Model\Entity\Complaint $complaint
  */
 class Survey extends Entity
 {

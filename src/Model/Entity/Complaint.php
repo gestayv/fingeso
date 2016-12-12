@@ -17,9 +17,10 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $availability_date
  * @property \Cake\I18n\Time $emission_date
  *
- * @property \App\Model\Entity\Survey[] $surveys
- * @property \App\Model\Entity\Executor $executor
  * @property \App\Model\Entity\Owner $owner
+ * @property \App\Model\Entity\Executor $executor
+ * @property \App\Model\Entity\Apartment $apartment
+ * @property \App\Model\Entity\Survey[] $surveys
  */
 class Complaint extends Entity
 {

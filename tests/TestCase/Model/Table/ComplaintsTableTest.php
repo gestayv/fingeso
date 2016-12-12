@@ -25,12 +25,12 @@ class ComplaintsTableTest extends TestCase
      */
     public $fixtures = [
         'app.complaints',
-        'app.surveys',
-        'app.executors',
         'app.owners',
+        'app.executors',
         'app.apartments',
         'app.buildings',
-        'app.supervisors'
+        'app.supervisors',
+        'app.surveys'
     ];
 
     /**

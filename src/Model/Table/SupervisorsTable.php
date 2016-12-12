@@ -21,6 +21,68 @@ use Cake\Validation\Validator;
  */
 class SupervisorsTable extends Table
 {
+    /**
+     * Procedimiento para crear nuevo usuario 
+     * 
+     * @param Rut, nombre y apellido
+     * @return Entity, nueva entidad si se pudo registrar usuario, NULL en caso contrario
+     */
+    public function newUser($rut,$name,$surname){
+        $user = $this->newEntity();
+
+        if ($this->getByRut($rut)) return NULL;
+
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->rut = $rut;
+
+
+        $name = explode(' ',$name)[0]; // solo primer nombre
+        $surname = explode(' ',$surname)[0]; // solo primer apellido
+
+        // reemplazar caracteres especiales 
+        $specials = ['á','é','í','ó','ú','ñ'];
+        $replace = ['a','e','i','o','u','n'];
+
+        $name = str_replace(["'",'"',';',','],"",$name);
+        $name = str_replace($specials,$replace,$name);
+
+        $surname = str_replace(["'",'"',';',','],"",$surname);
+        $surname = str_replace($specials,$replace,$surname);
+
+
+        // username = nombre.apellido
+        $username = $name.'.'.$surname;
+
+        $count = 0;
+        while ($this->getByUsername($username."$count")){
+            $count+=1;
+        }
+
+        $user->username = $username.(($count==0)?"":"$count");
+
+        // Pass: primeras 3 letras del nombre, 3 de apellido y 3 de rut.
+        $user->password = strtolower(str_split($name, 3)[0].str_split($surname, 3)[0].str_split($rut, 3)[0]);
+
+        // Guardar
+        return $this->save($user);
+
+    }
+
+
+    public function getByRut($rut){
+        return $this->find()->where(['rut'=>$rut])->first();
+    }
+
+    public function getByUsername($username){
+        return $this->find()->where(['username'=>$username])->first();
+    }
+
+
+
+
+    /** AUTO GENERATED **/
+    
 
     /**
      * Initialize method
@@ -33,7 +95,7 @@ class SupervisorsTable extends Table
         parent::initialize($config);
 
         $this->table('supervisors');
-        $this->displayField('id');
+        $this->displayField('name');
         $this->primaryKey('id');
 
         $this->hasMany('Buildings', [

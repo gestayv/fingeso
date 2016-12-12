@@ -118,6 +118,19 @@ create table complaints
 );
 
 /*==============================================================*/
+/* Table: Schedules                                             */
+/*==============================================================*/
+
+create table schedules
+(
+   id                 int not null AUTO_INCREMENT,
+   complaint_id       int,
+   day                char(1),
+   block              int,
+   primary key (id)
+);
+
+/*==============================================================*/
 /* Table: supervisors                                           */
 /*==============================================================*/
 create table supervisors
@@ -136,22 +149,25 @@ alter table apartments add constraint FK_POSEE2 foreign key (owner_id)
       references owners (id) on delete restrict on update restrict;
 
 alter table apartments add constraint FK_SE_COMPONE_DE foreign key (building_id)
-      references buildings (id) on delete restrict on update restrict;
+      references buildings (id) on delete CASCADE on update CASCADE;
 
 alter table buildings add constraint FK_ADMINISTRA2 foreign key (supervisor_id)
       references supervisors (id) on delete restrict on update restrict;
 
 alter table surveys add constraint FK_PROCEDE_A2 foreign key (complaint_id)
-      references complaints (id) on delete restrict on update restrict;
+      references complaints (id) on delete CASCADE on update CASCADE;
 
 alter table complaints add constraint FK_REALIZA foreign key (owner_id)
-      references owners (id) on delete restrict on update restrict;
+      references owners (id) on delete CASCADE on update CASCADE;
 
 alter table complaints add constraint FK_REPARA foreign key (executor_id)
       references executors (id) on delete restrict on update restrict;
 
 alter table complaints add constraint FK_OCURRE_EN foreign key (apartment_id)
-      references apartments (id) on delete restrict on update restrict;
+      references apartments (id) on delete CASCADE on update CASCADE;
+
+alter table schedules add constraint FK_PERTENECE_A foreign key (complaint_id)
+      references complaints (id) on delete CASCADE on update CASCADE;
 
 /*===============================*/
 /*  Poblado de la Base de datos  */
