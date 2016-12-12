@@ -10,7 +10,7 @@
 				<!--TextArea: Tiene el contenido del texto. En la vista de "Supervisor", deberia tener una elemento
 				disabled="" -->
 				<div class="container " >
-					<textarea class="form-control" maxlength="300" style="width:90%;margin-left:50px;" rows="10" id="comment" placeholder=""></textarea>
+					<textarea class="form-control" style="width:90%;margin-left:50px;" rows="10" id="comment" placeholder=""></textarea>
 				</div>
 
 			</div>

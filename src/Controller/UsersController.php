@@ -43,8 +43,8 @@ class UsersController extends AppController
             {
                 $this->set('formData',$datos);
                 $this->loadModel('Apartments');
-                $apartments = $this->Apartments->find('all',
-                    ['conditions' => ['Apartments.id =' => $datos['edificio']]]);
+
+                $apartments = $this->Apartments->find('all')-> where(['Apartments.building_id =' => $datos['edificio'], 'Apartments.owner_id IS' => null]);
                 if($apartments->isEmpty()){
                     $this->set('sinDptos','');
                 }else{
@@ -151,25 +151,33 @@ class UsersController extends AppController
         {
             $user = $this->Administrators->find('all',
                     ['conditions' => ['Administrators.id =' => $id]]);
+            $tipo = 4;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'owners')
         {
             $user = $this->Owners->find('all',
                     ['conditions' => ['Owners.id =' => $id]]);
+            $tipo = 1;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'executors')
         {
             $user = $this->Executors->find('all',
                     ['conditions' => ['Executors.id =' => $id]]);
+            $tipo = 2;
+            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'supervisors')
         {
             $user = $this->Supervisors->find('all',
                     ['conditions' => ['Supervisors.id =' => $id]]);
-            $this->set(compact('user'));
+            $tipo = 3;
+            $this->set(compact('tipo'));
+	    $this->set(compact('user'));
         }
     }
 
@@ -287,8 +295,6 @@ class UsersController extends AppController
         $this->request->session()->destroy();
         return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
-
-
 
 }
 
