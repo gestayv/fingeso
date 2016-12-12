@@ -8,10 +8,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $supervisor_id
- * @property int $NUM_EDIFICIO
- * @property string $DIR_EDIFICIO
+ * @property int $num
+ * @property string $name
+ * @property string $street
  *
- * @property \App\Model\Entity\Supervisor[] $supervisors
+ * @property \App\Model\Entity\Supervisor $supervisor
  * @property \App\Model\Entity\Apartment[] $apartments
  */
 class Building extends Entity

@@ -26,8 +26,11 @@ class ExecutorsTableTest extends TestCase
     public $fixtures = [
         'app.executors',
         'app.complaints',
-        'app.surveys',
-        'app.owners'
+        'app.owners',
+        'app.apartments',
+        'app.buildings',
+        'app.supervisors',
+        'app.surveys'
     ];
 
     /**

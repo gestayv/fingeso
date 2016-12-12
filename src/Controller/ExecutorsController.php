@@ -20,6 +20,10 @@ class ExecutorsController extends AppController
             $this->Auth->deny();
             $this->redirect($this->referer());
         }
+        else
+        {
+            $this->Auth->allow();
+        }
     }
 
     /**

@@ -10,7 +10,6 @@ use Cake\Validation\Validator;
  * Surveys Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Complaints
- * @property \Cake\ORM\Association\HasMany $Complaints
  *
  * @method \App\Model\Entity\Survey get($primaryKey, $options = [])
  * @method \App\Model\Entity\Survey newEntity($data = null, array $options = [])
@@ -40,9 +39,6 @@ class SurveysTable extends Table
         $this->belongsTo('Complaints', [
             'foreignKey' => 'complaint_id'
         ]);
-        $this->hasMany('Complaints', [
-            'foreignKey' => 'survey_id'
-        ]);
     }
 
     /**
@@ -58,7 +54,12 @@ class SurveysTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('DESCRIPCION_ENCUESTA');
+            ->integer('status')
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
+
+        $validator
+            ->allowEmpty('description');
 
         return $validator;
     }
