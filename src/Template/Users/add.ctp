@@ -128,6 +128,10 @@
 			document.getElementById("proyecto").disabled = false;
 			document.getElementById("dpto").disabled = false;
 		}
+		else if(x == 3)
+		{
+			document.getElementById("proyecto").disabled = true;
+		}
 		else
 		{
 			document.getElementById("proyecto").disabled = true;
@@ -143,6 +147,12 @@
 		{
 			document.getElementById("proyecto").disabled = false;
 			document.getElementById("dpto").disabled = false;
+		}
+		else if(tipo == 3)
+		{
+			document.getElementById("proyecto").disabled = false;
+			document.getElementById("dpto").value = 0;
+			document.getElementById("dpto").disabled = true;
 		}
 		else
 		{
