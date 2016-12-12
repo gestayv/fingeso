@@ -1,121 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formato Bootstrap</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+
+	<style>* {border-style:dotted;border-width: 1px}</style>
 
 	<br>
 	<br>	
 
-	<div class="content">
+	<div class="container">
 	
 		<div class="row">
 			<form action="" class="form-horizontal">
-				<!-- Primeras Columnas -->
-				<div class="col-md-offset-3 col-md-2">
-					<div class="form-group">
-						<label for="" class="label-control">Unidad</label>
-						<select name="unidad" id="" class="form-control">
-							<option value="1">Departamento</option>
-							<option value="2">Estacionamiento</option>
-							<option value="3">Bodega</option>
-							<option value="4">Servicio Comun</option>
-						</select>
+				<div class="text-center" style="margin: 0px 400px">
+					<h3>Titulo del Reclamo</h3>
+					<input type="text" placeholder="Nombre del reclamo:" class="form-control">
+				</div>
+
+				<!-- Division en columnas -->
+				<div class="row">
+					<div class="col-md-1">
+						
 					</div>
-					<br>
-					<div class="form-group">
+					<!-- Primera columna-->
+					<div class="col-md-4 col-xs-10">
+						<label for="" class="control-label">Disponibilidad</label>
 						<div class="">
-							<label for="" class="label-control">Fechas</label>
-							<div class="tabla">
-								<div class="filaHeader">
-									<div class="elementoHeader7">L</div>
-									<div class="elementoHeader7">M</div>
-									<div class="elementoHeader7">W</div>
-									<div class="elementoHeader7">J</div>
-									<div class="elementoHeader7">V</div>
-									<div class="elementoHeader7">S</div>
-									<div class="elementoHeader7">D</div>
-								</div>
-								<div class="fila">
-									<div class="elemento7">1</div>
-									<div class="elemento7">2</div>
-									<div class="elemento7">3</div>
-									<div class="elemento7">4</div>
-									<div class="elemento7">5</div>
-									<div class="elemento7">6</div>
-									<div class="elemento7">7</div>
-								</div>
-								<div class="fila">
-									<div class="elemento7">8</div>
-									<div class="elemento7">9</div>
-									<div class="elemento7">10</div>
-									<div class="elemento7">11</div>
-									<div class="elemento7">12</div>
-									<div class="elemento7">13</div>
-									<div class="elemento7">14</div>
-								</div>
-								<div class="fila">
-									<div class="elemento7">15</div>
-									<div class="elemento7">16</div>
-									<div class="elemento7">17</div>
-									<div class="elemento7">18</div>
-									<div class="elemento7">19</div>
-									<div class="elemento7">20</div>
-									<div class="elemento7">21</div>
-								</div>
-								<div class="fila">
-									<div class="elemento7">22</div>
-									<div class="elemento7">23</div>
-									<div class="elemento7">24</div>
-									<div class="elemento7">25</div>
-									<div class="elemento7">26</div>
-									<div class="elemento7">27</div>
-									<div class="elemento7">28</div>
-								</div>
-								<div class="fila">
-									<div class="elemento7">29</div>
-									<div class="elemento7">30</div>
-									<div class="elemento7">31</div>
-									<div class="elemento7"></div>
-									<div class="elemento7"></div>
-									<div class="elemento7"></div>
-									<div class="elemento7"></div>
-								</div>
+							<input name="Lunes" type="checkbox" class="text-center"> Lunes
+							<div class="row" style="">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2"type="checkbox">10:00 - 12:00 <br> 
+										<input value="3"type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
 							</div>
 						</div>
+
+						<div class="">
+							<input name="Martes" type="checkbox" class="text-center"> Martes
+							<div class="row" style="display:none">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2" type="checkbox">10:00 - 12:00 <br> 
+										<input value="3" type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
+							</div>
+						</div>
+
+						<div class="">
+							<input name="Miercoles" type="checkbox" class="text-center"> Miercoles
+							<div class="row" style="display:none">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2" type="checkbox">10:00 - 12:00 <br> 
+										<input value="3" type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
+							</div>
+						</div>
+
+						<div class="">
+							<input name="Jueves" type="checkbox" class="text-center"> Jueves
+							<div class="row" style="display:none">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2" type="checkbox">10:00 - 12:00 <br> 
+										<input value="3" type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
+							</div>
+						</div>
+
+						<div class="">
+							<input name="Viernes" type="checkbox" class="text-center"> Viernes
+							<div class="row" style="display:none">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2" type="checkbox">10:00 - 12:00 <br> 
+										<input value="3" type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
+							</div>
+						</div>
+
+						<div class="">
+							<input name="Sabado" type="checkbox" class="text-center"> Sabado
+							<div class="row" style="display:none">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2" type="checkbox">10:00 - 12:00 <br> 
+										<input value="3" type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
+							</div>
+						</div>
+
+						<div class="">
+							<input name="Domingo" type="checkbox" class="text-center"> Domingo
+							<div class="row" style="display:none">
+									<div class="col-md-6">
+										<input value="1" type="checkbox">8:00 - 10:00 <br>
+										<input value="2" type="checkbox">10:00 - 12:00 <br> 
+										<input value="3" type="checkbox">14:00 - 16:00 <br>
+									</div>
+									<div class="col-md-6">
+										<input value="4" type="checkbox">16:00 - 18:00 <br>
+										<input value="5" type="checkbox">18:00 - 20:00 <br>
+										<input value="6" type="checkbox">20:00 - 22:00 <br>
+									</div>
+							</div>
+						</div>						
 					</div>
-					<br>
-					<div class="form-group">
-						<label for="" class="label-control">Horas</label>
-						<select name="Hora" id="" class="form-control">
-							<option value="1">Bloque Manana (8:00 - 12:00)</option>
-							<option value="2">Bloque Tarde (14:00 - 18:00)</option>
-							<option value="3">Bloque Noche (18:00 - 22:00)</option>
-						</select>
+					<div class="col-md-2">
+						
 					</div>
-				</div>
-				<!-- Segundo Columna -->
-				
-				<div class="col-md-offset-1 col-md-2">
-					<div class="form-group">
-						<label for="" class="label-control">Tipo de problema</label>
-						<select name="problema" id="" class="form-control">
-							<option value="1">Gotera</option>
-							<option value="2">Pintura en mal estado</option>
-							<option value="3">Grieta</option>
-							<option value="4">Otro</option>
-						</select>
-					</div>						
-					<br>
-					<div class="form-group">
-						<label for="" class="label-control">Habitacion</label>
-							<input type="text" name="recinto" class="form-control">	
+					<!-- Segunda columna-->
+					<div class="col-md-4 col-xs-12" style="">
+						<!--TextArea: Para la descripcion -->
+						<label for="">Descripcion del reclamos</label>
+						<textarea  class="form-control" name="descripcion" id="" cols="30" rows="10" style="resize:none" placeholder="">
+								
+						</textarea>
 					</div>
-				
-					<div class="form-group">
-						<label for="" class="label-control">Reclamo</label>
-						<textarea class="form-control"name="reclamo" id="" cols="30" rows="12" placeholder="Ingrese su reclamo"></textarea>
+					<div class="col-md-1">
+						
 					</div>
 				</div>
 			</form>
 		</div>
 		<div class="row">
-			<button class="btn btn-primary col-md-offset-7 col-md-1" style="background-color:black">Enviar</button>
+			<button class="btn btn-primary pull-right" style="background-color:black">Enviar</button>
 		</div>
 	</div>
 	

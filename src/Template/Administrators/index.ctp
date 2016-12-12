@@ -1,4 +1,4 @@
-<?php $this->layout='fundamenta'?>
+ <?php $this->layout='fundamenta'?>
 	<!--Rectangulo de Reclamos-->
 	<title>Menu principal: Administrador</title>
 	<div class="content" >
