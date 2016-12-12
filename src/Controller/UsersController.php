@@ -16,11 +16,12 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout', 'edit']);
+        $this->Auth->allow(['add', 'logout', 'edit','profile']);
     }
 
     public function index()
     {
+        $this->setAction('profile');
     }
 
     public function view($id)
@@ -150,35 +151,38 @@ class UsersController extends AppController
         {
             $user = $this->Administrators->find('all',
                     ['conditions' => ['Administrators.id =' => $id]]);
-            foreach ($user as $u) {
-                print_r($u);    
-            }
-            $tipo = 4;
-            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'owners')
         {
             $user = $this->Owners->find('all',
                     ['conditions' => ['Owners.id =' => $id]]);
-            $tipo = 1;
-            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'executors')
         {
             $user = $this->Executors->find('all',
                     ['conditions' => ['Executors.id =' => $id]]);
-            $tipo = 2;
-            $this->set(compact('tipo'));
             $this->set(compact('user'));
         }
         elseif($tabla == 'supervisors')
         {
             $user = $this->Supervisors->find('all',
                     ['conditions' => ['Supervisors.id =' => $id]]);
-            $tipo = 3;
-            $this->set(compact('tipo'));
+            $this->set(compact('user'));
+        }
+    }
+
+    public function profile(){
+        $session = $this->request->session();
+        if (!$session->check('User')){
+            $this->setAction('login');
+        }
+
+        if ($this->request->is('post')) {
+            
+        }else{
+            $user = $session->read('User');
             $this->set(compact('user'));
         }
     }
@@ -283,6 +287,8 @@ class UsersController extends AppController
         $this->request->session()->destroy();
         return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
+
+
 
 }
 
