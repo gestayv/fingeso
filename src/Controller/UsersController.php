@@ -42,8 +42,8 @@ class UsersController extends AppController
             {
                 $this->set('formData',$datos);
                 $this->loadModel('Apartments');
-                $apartments = $this->Apartments->find('all',
-                    ['conditions' => ['Apartments.id =' => $datos['edificio']]]);
+
+                $apartments = $this->Apartments->find('all')-> where(['Apartments.building_id =' => $datos['edificio'], 'Apartments.owner_id IS' => null]);
                 if($apartments->isEmpty()){
                     $this->set('sinDptos','');
                 }else{
@@ -61,7 +61,6 @@ class UsersController extends AppController
 
                     if($user){
                         $depto = $this->Apartments->get($datos['departamento']);
-
                         if($depto){
                             $depto->owner_id = $user->id;
 
@@ -150,9 +149,6 @@ class UsersController extends AppController
         {
             $user = $this->Administrators->find('all',
                     ['conditions' => ['Administrators.id =' => $id]]);
-            foreach ($user as $u) {
-                print_r($u);    
-            }
             $tipo = 4;
             $this->set(compact('tipo'));
             $this->set(compact('user'));
