@@ -83,7 +83,7 @@ class OwnersTable extends Table
 
 
     /** AUTO GENERATED **/
-
+    
     /**
      * Initialize method
      *

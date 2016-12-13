@@ -16,11 +16,12 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout', 'edit']);
+        $this->Auth->allow(['add', 'logout', 'edit','profile','delete']);
     }
 
     public function index()
     {
+        $this->setAction('profile');
     }
 
     public function view($id)
@@ -61,6 +62,7 @@ class UsersController extends AppController
 
                     if($user){
                         $depto = $this->Apartments->get($datos['departamento']);
+
                         if($depto){
                             $depto->owner_id = $user->id;
 
@@ -175,6 +177,56 @@ class UsersController extends AppController
                     ['conditions' => ['Supervisors.id =' => $id]]);
             $tipo = 3;
             $this->set(compact('tipo'));
+	    $this->set(compact('user'));
+        }
+    }
+
+    public function delete($tabla,$id){
+         $this->loadModel('Administrators');
+        $this->loadModel('Owners');
+        $this->loadModel('Executors');
+        $this->loadModel('Supervisors');
+
+        if($tabla == 'administrators')
+        {
+            $user = $this->Administrators->get($id);
+            $result = $this->Administrators->delete($user);
+            debug($result);
+        }
+        elseif($tabla == 'owners')
+        {
+            $user = $this->Owners->get($id);
+            $result = $this->Owners->delete($user);
+            debug($result);
+        }
+        elseif($tabla == 'executors')
+        {
+            $user = $this->Executors->get($id);
+            $result = $this->Executors->delete($user);
+            debug($result);
+        }
+        elseif($tabla == 'supervisors')
+        {
+            $user = $this->Supervisors->get($id);
+            $result = $this->Supervisors->delete($user);
+            debug($result);
+        }
+
+
+        $this->Flash->set('Usuario eliminado');
+        return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
+    }
+
+    public function profile(){
+        $session = $this->request->session();
+        if (!$session->check('User')){
+            $this->setAction('login');
+        }
+
+        if ($this->request->is('post')) {
+            
+        }else{
+            $user = $session->read('User');
             $this->set(compact('user'));
         }
     }

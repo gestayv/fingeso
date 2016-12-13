@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Owners
  * @property \Cake\ORM\Association\BelongsTo $Executors
  * @property \Cake\ORM\Association\BelongsTo $Apartments
+ * @property \Cake\ORM\Association\HasMany $Schedules
  * @property \Cake\ORM\Association\HasMany $Surveys
  *
  * @method \App\Model\Entity\Complaint get($primaryKey, $options = [])
@@ -47,6 +48,9 @@ class ComplaintsTable extends Table
         ]);
         $this->belongsTo('Apartments', [
             'foreignKey' => 'apartment_id'
+        ]);
+        $this->hasMany('Schedules', [
+            'foreignKey' => 'complaint_id'
         ]);
         $this->hasMany('Surveys', [
             'foreignKey' => 'complaint_id'

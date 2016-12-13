@@ -111,7 +111,7 @@ create table complaints
    priority           int,
    status             int,
    name               varchar(50),
-   description        varchar(300),
+   description        text,
    availability_date  datetime,
    emission_date      datetime,
    primary key (id)

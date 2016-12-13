@@ -80,14 +80,4 @@ class AdministratorsTableTest extends TestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
-
-    /**
-     * Test index method
-     *
-     * @return void
-     */
-    public function testIndex()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

@@ -99,7 +99,6 @@
 					<?= $this->Html->link('Atras', ['controller' => 'administrators', 'action' => 'index'], ['class' => 'btn btn-primary pull-left', 'style' => 'background:black']);
 					?>
 					<input type="submit" value="Enviar" class="btn btn-primary pull-right" style="background:black;">
-					<button class="btn btn-primary pull-right" style="background:black;" onclick="submitForm2()">Ingresar</button>
 					<?=
 						$this->Form->end();
 					?>

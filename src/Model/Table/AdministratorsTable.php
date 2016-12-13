@@ -19,8 +19,6 @@ use Cake\Validation\Validator;
  */
 class AdministratorsTable extends Table
 {
-
-
     /**
      * Procedimiento para crear nuevo usuario 
      * 

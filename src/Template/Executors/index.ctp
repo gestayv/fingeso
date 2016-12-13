@@ -1,4 +1,4 @@
-<!-- src/Template/Executors/index.ctp -->
+ <!-- src/Template/Executors/index.ctp -->
 <!--Rectangulo de Reclamos-->
 <?php $this->layout = 'fundamenta';?>
 <title>Reclamos asignados</title>
@@ -20,26 +20,25 @@
 		<div class="col-md-8">
 			<div class="tabla">
 				<div class="filaHeader">
-					<div class="elementoHeader6">Nombre/Tipo del Reclamo</div>
-					<div class="elementoHeader6">Usuario del ticket</div>
-					<div class="elementoHeader6">Fecha de Emision</div>
-					<div class="elementoHeader6">Prioridad</div>
-					<div class="elementoHeader6">Estado</div>
-					<div class="elementoHeader6">Seleccion</div>
+					<div class="elementoHeader5">Nombre/Tipo del Reclamo</div>
+					<div class="elementoHeader5">Usuario del ticket</div>
+					<div class="elementoHeader5">Fecha de Emision</div>
+					<div class="elementoHeader5">Prioridad</div>
+					<div class="elementoHeader5">Estado</div>
 				</div>
 				<div class="fila">
-					<div class="elemento6">1.1</div>
-					<div class="elemento6">1.2</div>
-					<div class="elemento6">1.3</div>
-					<div class="elemento6">1.4</div>
-					<div class="elemento6">1.5</div>
-					<div class="button6">
-						<div class="elementudbutton">
-							<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Asignar Ejecutor</button>
-						</div>
-						<div class="elementudbutton">
-							<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Revisar Encuesta</button>
-						</div>
+					<div class="elemento5">1.1</div>
+					<div class="elemento5">1.2</div>
+					<div class="elemento5">1.3</div>
+					<div class="elemento5">1.4</div>
+					<div class="elemento5"> 
+						<select name="estado" id="">
+							<option value="1">Creado</option>
+							<option value="2">En Progreso</option>
+							<option value="3">Finalizado</option>
+						</select>
+					</div>
+						
 					</div>
 				</div>			
 			</div>
