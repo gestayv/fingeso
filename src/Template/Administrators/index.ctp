@@ -50,10 +50,16 @@
 						    </div>
 						    <div class="elemento5">	
 							<div class="elementbutton">
-								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'administrators', $admin->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
+								<?= $this->Html->link('Modificar', 
+														['controller' => 'users', 'action' => 'edit', 'administrators', $admin->id], 
+														['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); 
+								?>
 							</div>
 							<div class="elementbutton">
-								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+								<?= $this->Html->link('X', 
+														['controller' => 'users', 'action' => 'delete', 'administrators', $admin->id], 
+														['class' => 'btn btn-danger', 'style' => 'padding: 1px 10px', "confirm"=>'¿Está seguro de eliminar este usuario?']); 
+								?>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -77,7 +83,10 @@
 								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'owners',$owner->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
 							</div>
 							<div class="elementbutton">
-								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+								<?= $this->Html->link('X', 
+														['controller' => 'users', 'action' => 'delete', 'owners', $owner->id], 
+														['class' => 'btn btn-danger', 'style' => 'padding: 1px 10px', "confirm"=>'¿Está seguro de eliminar este usuario?']); 
+								?>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -101,7 +110,10 @@
 								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'executors',$exec->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
 							</div>
 							<div class="elementbutton">
-								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+								<?= $this->Html->link('X', 
+														['controller' => 'users', 'action' => 'delete', 'executors', $exec->id], 
+														['class' => 'btn btn-danger', 'style' => 'padding: 1px 10px', "confirm"=>'¿Está seguro de eliminar este usuario?']); 
+								?>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -125,7 +137,10 @@
 								<?= $this->Html->link('Modificar', ['controller' => 'users', 'action' => 'edit', 'supervisors', $super->id], ['class' => 'btn btn-info', 'style' => 'padding: 1px 10px']); ?>
 							</div>
 							<div class="elementbutton">
-								<button class="btn btn-danger" style="padding: 1px 10px;">X</button>
+								<?= $this->Html->link('X', 
+														['controller' => 'users', 'action' => 'delete', 'supervisors', $super->id], 
+														['class' => 'btn btn-danger', 'style' => 'padding: 1px 10px', "confirm"=>'¿Está seguro de eliminar este usuario?']); 
+								?>
 							</div>
 						</div>
 					<?php endforeach; ?>

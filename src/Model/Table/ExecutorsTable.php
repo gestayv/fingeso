@@ -21,7 +21,6 @@ use Cake\Validation\Validator;
  */
 class ExecutorsTable extends Table
 {
-
     /**
      * Procedimiento para crear nuevo usuario 
      * 

@@ -83,7 +83,6 @@ class SupervisorsTable extends Table
 
     /** AUTO GENERATED **/
     
-
     /**
      * Initialize method
      *

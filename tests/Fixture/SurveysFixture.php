@@ -26,7 +26,7 @@ class SurveysFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'FK_PROCEDE_A2' => ['type' => 'foreign', 'columns' => ['complaint_id'], 'references' => ['complaints', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'FK_PROCEDE_A2' => ['type' => 'foreign', 'columns' => ['complaint_id'], 'references' => ['complaints', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

@@ -27,8 +27,8 @@ class ApartmentsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'FK_POSEE2' => ['type' => 'foreign', 'columns' => ['owner_id'], 'references' => ['owners', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'FK_SE_COMPONE_DE' => ['type' => 'foreign', 'columns' => ['building_id'], 'references' => ['buildings', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'FK_POSEE2' => ['type' => 'foreign', 'columns' => ['owner_id'], 'references' => ['owners', 'id'], 'update' => 'setNull', 'delete' => 'setNull', 'length' => []],
+            'FK_SE_COMPONE_DE' => ['type' => 'foreign', 'columns' => ['building_id'], 'references' => ['buildings', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

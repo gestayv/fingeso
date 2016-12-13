@@ -16,7 +16,7 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout', 'edit','profile']);
+        $this->Auth->allow(['add', 'logout', 'edit','profile','delete']);
     }
 
     public function index()
@@ -179,6 +179,42 @@ class UsersController extends AppController
             $this->set(compact('tipo'));
 	    $this->set(compact('user'));
         }
+    }
+
+    public function delete($tabla,$id){
+         $this->loadModel('Administrators');
+        $this->loadModel('Owners');
+        $this->loadModel('Executors');
+        $this->loadModel('Supervisors');
+
+        if($tabla == 'administrators')
+        {
+            $user = $this->Administrators->get($id);
+            $result = $this->Administrators->delete($user);
+            debug($result);
+        }
+        elseif($tabla == 'owners')
+        {
+            $user = $this->Owners->get($id);
+            $result = $this->Owners->delete($user);
+            debug($result);
+        }
+        elseif($tabla == 'executors')
+        {
+            $user = $this->Executors->get($id);
+            $result = $this->Executors->delete($user);
+            debug($result);
+        }
+        elseif($tabla == 'supervisors')
+        {
+            $user = $this->Supervisors->get($id);
+            $result = $this->Supervisors->delete($user);
+            debug($result);
+        }
+
+
+        $this->Flash->set('Usuario eliminado');
+        return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
     }
 
     public function profile(){
