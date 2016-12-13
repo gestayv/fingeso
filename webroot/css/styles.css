@@ -209,7 +209,7 @@ div.elementbutton {
 div.elementudbutton {
 	display: table-column-group;
 	width: 100%;
-	height: 50%;
+	height: 100%;
 	text-align: center;
 	float: left;	
 }

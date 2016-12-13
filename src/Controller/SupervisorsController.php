@@ -26,9 +26,26 @@ class SupervisorsController extends AppController
         }
     }
 
-    public function assign()
+    public function assign($ticket_id = null)
     {
+        if($ticket_id==null) return $this->redirect($this->referer());
 
+        if ($this->request->is('post') && $this->request->data['action']=='asignar') {
+            $this->loadModel('Complaints');
+            $ticket = $this->Complaints->get($ticket_id);
+            if($ticket){
+                $ticket->executor_id = intval($this->request->data['exec_id']);
+                $this->Complaints->save($ticket);
+                $this->Flash->success('Operación realizada con éxito');
+                return $this->redirect(['controller' => 'Supervisors', 'action' => 'index']);
+            }else{
+                $this->Flash->error('No se pudo realizar la operación');
+            }
+        }
+
+        $this->loadModel('Executors');
+        $executors = $this->Executors->find('all');
+        $this->set(compact('executors'));
     }
 
     /**
