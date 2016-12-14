@@ -46,6 +46,22 @@ class SurveysController extends AppController
     		return $this->redirect($this->referer());
     	}
     }
+
+    public function add($idComplaint)
+    {
+        $this->loadModel('Complaints');
+
+        $surveys = $this->Surveys->find('all')
+            ->where(['Surveys.complaint_id' => $idComplaint])
+            ->contain(['Complaints']);
+
+        foreach ($surveys as $s) {
+            print_r($s);
+            echo "<br><br>";
+        }
+
+        $this->set(compact('surveys'));
+    }
 }
 
 ?>

@@ -34,7 +34,16 @@
 			    	?>
 				</div>
 				<div class="elemento4">
-				<a href="/owners/survey" class="btn btn-primary" <?php if($complaint->surveys[0]->status == 1){ echo 'disabled'; }?> >Responder Encuestas</a>
+				
+				<?php
+					echo '<a href="/surveys/add/'.$complaint->id.'" class="btn btn-primary"'; 
+
+					if($complaint->surveys[0]->status == 1)
+					{ 
+						echo 'disabled'; 
+					} 
+					echo '>Responder Encuestas</a>';
+				?>
 				</div>
 			</div>	
 			<?php endforeach; ?>

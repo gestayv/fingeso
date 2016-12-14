@@ -40,26 +40,30 @@ class ComplaintsController extends AppController
      */
     public function add()
     {
-        $tablaReclamos = TableRegistry::get('Complaints');
-        $tablaHorarios = TableRegistry::get('Schedules');
+        $tablaReclamos  = TableRegistry::get('Complaints');
+        $tablaHorarios  = TableRegistry::get('Schedules');
+        $tablaSurveys   = TableRegistry::get('Surveys');
         $this->loadModel('Apartments');
-        $sesion = $this->request->session();
-        $datos = $this->request->data;
-        $apartamentos = $this->Apartments->find('all', ['conditions' => ['Apartments.owner_id =' => $sesion->read('User.id')]]);
+        $sesion         = $this->request->session();
+        $datos          = $this->request->data;
+        $apartamentos   = $this->Apartments->find('all', ['conditions' => ['Apartments.owner_id =' => $sesion->read('User.id')]]);
         foreach($apartamentos as $apartamento){}
         if($this->request->is('post'))
         {
-
-            $reclamo = $tablaReclamos->newEntity();
-            $reclamo->name = $datos['complaint_name'];
-            $reclamo->description = $datos['descripcion'];
-            $reclamo->status = 0;
-            $reclamo->owner_id = $sesion->read('User.id');
-            $reclamo->apartment_id = $apartamento->id;
+            $reclamo                = $tablaReclamos->newEntity();
+            $reclamo->name          = $datos['complaint_name'];
+            $reclamo->description   = $datos['descripcion'];
+            $reclamo->status        = 0;
+            $reclamo->owner_id      = $sesion->read('User.id');
+            $reclamo->apartment_id  = $apartamento->id;
             if($tablaReclamos->save($reclamo))
             {
-                $day = 0;
-                $sgte = 0;
+                $survey = $tablaSurveys->newEntity();
+                $survey->complaint_id = $reclamo->id;
+                $survey->status = 0;
+                $tablaSurveys->save($survey);
+                $day    = 0;
+                $sgte   = 0;
                 if(count($datos) > 2)
                 {
                     foreach ($datos as $dato => $bloque) {
@@ -104,10 +108,10 @@ class ComplaintsController extends AppController
                         }
                         if($sgte == 0)
                         {
-                            $horario = $tablaHorarios->newEntity();
-                            $horario->complaint_id = $reclamo->id;
-                            $horario->day = $dato[0];
-                            $horario->block = $dato[1];
+                            $horario                = $tablaHorarios->newEntity();
+                            $horario->complaint_id  = $reclamo->id;
+                            $horario->day           = $dato[0];
+                            $horario->block         = $dato[1];
                             $tablaHorarios->save($horario);
                         }
                     }
