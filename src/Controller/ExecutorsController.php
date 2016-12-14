@@ -12,6 +12,13 @@ use Cake\ORM\TableRegistry;
  */
 class ExecutorsController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Flash');
+    }
+    
+    
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);

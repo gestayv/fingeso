@@ -12,6 +12,7 @@ use Cake\Event\Event;
 class AdministratorsController extends AppController
 {
 
+    
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);

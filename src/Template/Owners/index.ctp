@@ -34,7 +34,7 @@
 			    	?>
 				</div>
 				<div class="elemento4">
-					<?= $this->Html->link('Responder Encuestas', ['action' => 'survey'], ['class' => 'btn btn-primary']); ?>
+				<a href="/owners/survey" class="btn btn-primary" <?php if($complaint->surveys[0]->status == 1){ echo 'disabled'; }?> >Responder Encuestas</a>
 				</div>
 			</div>	
 			<?php endforeach; ?>

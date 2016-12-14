@@ -138,9 +138,3 @@
     	}
     });
 </script>
-
-<script>
-	window.onload = function()
-	{
-	}
-</script>

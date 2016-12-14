@@ -11,6 +11,13 @@ use Cake\Event\Event;
  */
 class OwnersController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Flash');
+    }
+    
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
@@ -38,11 +45,13 @@ class OwnersController extends AppController
      */
     public function index()
     {
-        
+        $this->loadModel('Surveys');
+
         $session = $this->request->session();
         $id_user = $session->read('User.id');
-        $complaints = $this->Owners->Complaints->find('all',
-            ['conditions' => ['Complaints.owner_id' => $id_user]]);
+        $complaints = $this->Owners->Complaints->find('all')
+            ->where(['Complaints.owner_id' => $id_user])
+            ->contain(['Surveys']);
         $this->set(compact('complaints'));
     }
 
