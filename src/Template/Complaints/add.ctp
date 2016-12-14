@@ -7,14 +7,14 @@
 					<h3>Titulo del Reclamo</h3>
 					<input name="complaint_name" type="text" placeholder="Nombre del reclamo:" class="form-control" required>
 				</div>
-
+				<br><br>
 				<!-- Division en columnas -->
-				<div class="row">
+				<div class="row" style="border: 2px solid black">
 					<div class="col-md-1">
 						
 					</div>
 					<!-- Primera columna-->
-					<div class="col-md-4 col-xs-10">
+					<div class="col-md-4 col-xs-10" style="padding: 20px 0px ">
 						<label for="" class="control-label">Disponibilidad</label>
 						<div class="">
 							<input name="Lunes" id="l" type="checkbox" class="text-center"> Lunes
@@ -132,10 +132,10 @@
 						
 					</div>
 					<!-- Segunda columna-->
-					<div class="col-md-4 col-xs-12" style="">
+					<div class="col-md-4 col-xs-12" style="padding: 20px 0px "	>
 						<!--TextArea: Para la descripcion -->
 						<label for="">Descripcion del reclamos</label>
-						<textarea  class="form-control" name="descripcion" id="descripcion" cols="30" rows="10" style="resize:none" placeholder="Escriba en detalle en qué consiste su reclamo" required></textarea>
+						<textarea  class="form-control" name="descripcion" id="descripcion" cols="30" rows="10" style="resize:none" placeholder="Escriba en detalle en qué consiste su reclamo:" required></textarea>
 					</div>
 					<div class="col-md-1">
 					</div>
@@ -248,7 +248,7 @@
 		}
 		else if(document.getElementById('d').checked == false)
 		{
-			document.getElementById('b_l').style.display = 'none';
+			document.getElementById('b_d	').style.display = 'none';
 		}
 	}
 </script>

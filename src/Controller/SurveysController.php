@@ -50,17 +50,26 @@ class SurveysController extends AppController
     public function add($idComplaint)
     {
         $this->loadModel('Complaints');
+        $this->loadModel('Executors');
 
         $surveys = $this->Surveys->find('all')
             ->where(['Surveys.complaint_id' => $idComplaint])
             ->contain(['Complaints']);
 
-        foreach ($surveys as $s) {
-            print_r($s);
-            echo "<br><br>";
-        }
+        
 
+        foreach ($surveys as $s) {}
+
+        $exec = $this->Executors->find('all')
+            ->where(['Executors.id =' => $s->complaint->executor_id]);
+
+        foreach ($exec as $e) {
+            print_r($e);
+        }
+        
+        $this->set(compact('exec'));
         $this->set(compact('surveys'));
+
     }
 }
 
