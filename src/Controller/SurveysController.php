@@ -38,9 +38,12 @@ class SurveysController extends AppController
     	$survey = $this->Surveys->find()->where(['Surveys.id'=>$id])->contain(['Complaints'])->first();
     	if($survey){
     		$user = $this->request->session()->read('User');
+            if ($user['tipo']=='propietario' && $user['id']!=$survey->complaint->owner_id) 
+                return $this->redirect($this->referer());
 
     		$this->set(compact('survey'));
     		$this->set(compact('user'));
+
     	}else{
     		$this->Flash->error('No existe encuesta');
     		return $this->redirect($this->referer());
