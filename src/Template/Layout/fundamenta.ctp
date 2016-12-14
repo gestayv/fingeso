@@ -24,11 +24,12 @@
 	<br>
 	<br>
 	
+	<script type="text/javascript" src="/js/jquery.js"></script>
+
 	<?= $this->Flash->render() ?>
     <?= $this->fetch('content') ?>
 
-	<script src="/js/jquery.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
