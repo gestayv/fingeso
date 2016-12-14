@@ -94,12 +94,19 @@
 						    	?>
 						    </div>
 						    <div class="button7">
-								<div class="elementudbutton">
-								<?= $this->Html->link('Asignar Ejecutor', ['action' => 'assign', $complaint->id], ['class' => 'btn btn-primary', 'style' => 'background:black;padding:1px 5px;font-size:10px']); ?>
-								</div>
-								<div class="elementudbutton">
-									<button class="btn btn-primary" style="background:black;padding:1px 5px;font-size:10px;">Revisar Encuesta</button>
-								</div>
+						    	<?php 
+						    	if ($complaint->status != 2) {
+						    		echo '<div class="elementudbutton">';
+									echo $this->Html->link('Asignar Ejecutor', ['action' => 'assign', $complaint->id], ['class' => 'btn btn-primary', 'style' => 'background:black;padding:5px 5px;margin:3px;']);
+									echo "</div>";
+						    	}
+						    	
+								if ($complaint->surveys[0]->status == 1) {
+						    		echo '<div class="elementudbutton">';
+									echo '<button class="btn btn-primary" style="background:black;padding:5px 5px;margin:3px;">Revisar Encuesta</button>';
+									echo '</div>';
+						    		}
+								?>
 							</div>
 					</div>
 					

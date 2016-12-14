@@ -22,15 +22,23 @@
 						<div class="elementoHeader4">Rut</div>
 						<div class="elementoHeader4">Seleccionar</div>
 					</div>
-					<div class="fila">
-						<div class="elemento4">1.1</div>
-						<div class="elemento4">1.2</div>
-						<div class="elemento4">1.3</div>
-						<div class="elemento4">
-							<button class="btn btn-primary" style="background:black;padding:2px 50px;font-size:12px;">
-							Seleccionar Ejecutor</button>
-						</div>
-					</div>
+				<?php 
+					foreach ($executors as $exec) {
+						echo '<div class="fila">
+							<div class="elemento4">'.$exec->name.'</div>
+							<div class="elemento4">'.$exec->surname.'</div>
+							<div class="elemento4">'.$exec->rut.'</div>';
+
+						echo '<div class="elemento4">
+								<form method="post">
+									<input type="hidden" name="action" value="asignar">
+									<input type="hidden" name="exec_id" value="'.$exec->id.'">
+									<input type="submit" value="Seleccionar Ejecutor" class="btn btn-primary" style="background:black;padding:2px 50px;font-size:12px;">
+								</form>
+							</div>
+							</div>';
+					}
+				?>
 				</div>
 			</div>
 		</section>
