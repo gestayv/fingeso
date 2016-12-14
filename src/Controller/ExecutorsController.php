@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Executors Controller
@@ -33,10 +34,22 @@ class ExecutorsController extends AppController
      */
     public function index()
     {
-        $executors = $this->paginate($this->Executors);
+        $this->loadModel('Complaints');
+        $this->loadModel('Owners');
+        $complaint_update = TableRegistry::get('Complaints');
 
-        $this->set(compact('executors'));
-        $this->set('_serialize', ['executors']);
+        $complaints = $this->Complaints->find("all")
+            ->contain(['Owners']);
+
+        $this->set(compact('complaints'));
+
+        $datos = $this->request->data;
+        if ($this->request->is('post'))
+        {
+            $compl = $complaint_update->get($datos['id']);
+            $compl->status = $datos['cambio'];
+            $complaint_update->save($compl);
+        }
     }
 
     /**
