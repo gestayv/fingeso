@@ -62,7 +62,6 @@ class SupervisorsController extends AppController
 
         $complaints = $this->Complaints->find('all'
             , ['contain' => ['Owners', 'Executors', 'Surveys']]);
-
         $this->set(compact('complaints'));        
     }
 

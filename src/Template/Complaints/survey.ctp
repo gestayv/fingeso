@@ -1,4 +1,7 @@
-<?php $this->layout = 'fundamenta'; ?>
+<?php 
+	$this->layout = 'fundamenta'; 
+	debug($user);
+?>
 
 <div class="container">
 	<form action="" class="form-horizontal">

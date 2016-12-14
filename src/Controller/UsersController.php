@@ -141,45 +141,164 @@ class UsersController extends AppController
     }
 
     public function edit(/*string*/$tabla, /*int*/$id)
-    {
-        $this->loadModel('Administrators');
+    {   $this->loadModel('Administrators');
         $this->loadModel('Owners');
         $this->loadModel('Executors');
         $this->loadModel('Supervisors');
+        $this->loadModel('Buildings');
+        $this->loadModel('Apartments');
 
-        if($tabla == 'administrators')
+        $buildings = $this->Buildings->find('all');
+        $this->set(compact('buildings'));
+        
+        $datos = $this->request->data;
+        debug($datos);
+        if($this->request->is('post'))
         {
-            $user = $this->Administrators->find('all',
-                    ['conditions' => ['Administrators.id =' => $id]]);
-            $tipo = 4;
-            $this->set(compact('tipo'));
-            $this->set(compact('user'));
+            if($datos['tipoSubmit'] == 'Edificio')
+            {
+                $this->set('formData',$datos);
+
+                $apartments = $this->Apartments->find('all')-> where(['Apartments.building_id =' => $datos['edificio'], 'Apartments.owner_id IS' => null]);
+                if($apartments->isEmpty()){
+                    $this->set('sinDptos','');
+                }else{
+                    $this->set(compact('apartments'));
+                }
+            }
+            elseif ($datos['tipoSubmit'] == 'Datos'){
+                if($datos['tipoUser']==1){      // Propietario 
+                    /* crear usuario */
+                    
+                    $user = $this->Owners->get($id);
+                    $user->name = $datos['name'];
+                    $user->surname = $datos['surname'];
+                    $user->rut = $datos['rut'];
+                    $this->Owners->save($user);
+
+                    if($user){
+                        $depto = $this->Apartments->get($datos['departamento']);
+
+                        if($depto){
+                            $depto->owner_id = $user->id;
+
+                            if($this->Apartments->save($depto)){
+                                $this->Flash->set('Usuario y depto actualizado');
+                            }else{
+                                $this->Flash->set('Usuario actualizado y depto sin actualizar');
+                            }
+
+                        }else{
+                            $this->Flash->set('Usuario actualizado y depto sin encontrar');
+                        }
+                    }else{
+                        $this->Flash->set('Usuario no se pudo actualizar');
+                    }
+
+                }elseif($datos['tipoUser']==2){ // Ejecutor
+                    /* crear usuario */
+
+                    $user = $this->Executors->get($id);
+                    $user->name = $datos['name'];
+                    $user->surname = $datos['surname'];
+                    $user->rut = $datos['rut'];
+                    $this->Executors->save($user);
+
+                    if($user){
+                        $this->Flash->set('Usuario actualizado');
+                    }else{
+                        $this->Flash->set('Usuario no se pudo actualizar');
+                    }
+
+                }elseif($datos['tipoUser']==3){ // Supervisor
+                    /* crear usuario */
+
+                    $user = $this->Supervisors->get($id);
+                    $user->name = $datos['name'];
+                    $user->surname = $datos['surname'];
+                    $user->rut = $datos['rut'];
+                    $this->Supervisors->save($user);
+
+                    if($user){
+                        $edificio = $this->Buildings->get($datos['edificio']);
+
+                        if($edificio){
+                            $edificio->supervisor_id = $user->id;
+
+                            if($this->Buildings->save($edificio)){
+                                $this->Flash->set('Usuario y edificio actualizado');
+                            }else{
+                                $this->Flash->set('Usuario actualizado y edificio sin actualizar');
+                            }
+
+                        }else{
+                            $this->Flash->set('Usuario actualizado y edificio sin encontrar');
+                        }
+                    }else{
+                        $this->Flash->set('Usuario no se pudo registrar');
+                    }
+
+                }elseif($datos['tipoUser']==4){ // Administrador
+                    /* crear usuario */
+
+                    $user = $this->Administrators->get($id);
+                    $user->name = $datos['name'];
+                    $user->surname = $datos['surname'];
+                    $user->rut = $datos['rut'];
+                    $this->Administrators->save($user);
+
+                    if($user){
+                        $this->Flash->set('Usuario actualizado');
+                    }else{
+                        $this->Flash->set('Usuario no se pudo registrar');
+                    }
+                }else{
+                    $this->set('formData',$datos);
+                    return;
+                }
+                return $this->redirect(['controller'=>'Administrators','action'=>'index']);
+            }
+        }else{
+            $user = null;
+            $tipo = 0;
+            if($tabla == 'administrators')
+            {
+                $user = $this->Administrators->get($id);
+                $tipo = 4;
+
+            }
+            elseif($tabla == 'owners')
+            {
+                $user = $this->Owners->get($id);
+                $tipo = 1;
+            }
+            elseif($tabla == 'executors')
+            {
+                $user = $this->Executors->get($id);
+                $tipo = 2;
+            }
+            elseif($tabla == 'supervisors')
+            {
+                $user = $this->Supervisors->get($id);
+                $tipo = 3;
+            }
+            $datos = $user->toArray();
+            $datos['tipoUser']=$tipo;
+
+            // obtener depto y edificio
+            $depto = $this->Apartments->find()->where(['Apartments.owner_id'=>$id])->contain(['Buildings'])->first();
+            $datos['edificio'] = $depto->building->id;
+            $datos['depto'] = $depto->id;
+
+            $this->set('formData',$datos);
+
+            $apartments = $this->Apartments->find()->where(['building_id'=>$datos['edificio']]);
+
+            $this->set(compact('apartments'));
         }
-        elseif($tabla == 'owners')
-        {
-            $user = $this->Owners->find('all',
-                    ['conditions' => ['Owners.id =' => $id]]);
-            $tipo = 1;
-            $this->set(compact('tipo'));
-            $this->set(compact('user'));
-        }
-        elseif($tabla == 'executors')
-        {
-            $user = $this->Executors->find('all',
-                    ['conditions' => ['Executors.id =' => $id]]);
-            $tipo = 2;
-            $this->set(compact('tipo'));
-            $this->set(compact('user'));
-        }
-        elseif($tabla == 'supervisors')
-        {
-            $user = $this->Supervisors->find('all',
-                    ['conditions' => ['Supervisors.id =' => $id]]);
-            $tipo = 3;
-            $this->set(compact('tipo'));
-	    $this->set(compact('user'));
-        }
+        
     }
+
 
     public function delete($tabla,$id){
          $this->loadModel('Administrators');

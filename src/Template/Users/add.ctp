@@ -1,7 +1,5 @@
 <!-- src/Template/Users/add.ctp -->
 
-
-
 	<?php $this->layout = "fundamenta"; ?>
 	<title>Modificar Usuario</title>
 	<div class="container">
@@ -49,7 +47,7 @@
 							id="rut" 
 							class="form-control" 
 							placeholder="12345678-9" 
-							pattern="([0-9])+-[0-9]"
+							pattern="([0-9])+-[\dkK]"
 							<?php if((isset($formData))) echo 'value="',$formData['rut'],'"';?> 
 							required >
 					</div>
