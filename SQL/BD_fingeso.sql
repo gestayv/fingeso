@@ -67,7 +67,7 @@ create table surveys
    id                   int not null AUTO_INCREMENT,
    complaint_id         int,
    status               int not null,
-   description          varchar(300),
+   description          text,
    primary key (id)
 );
 
@@ -216,9 +216,9 @@ UPDATE apartments SET owner_id=2 WHERE id=2;
 UPDATE apartments SET owner_id=3 WHERE id=3;
 UPDATE apartments SET owner_id=4 WHERE id=4;
 
-INSERT INTO surveys(description, status) VALUES ('', 0);
-INSERT INTO surveys(description, status) VALUES ('', 0);
-INSERT INTO surveys(description, status) VALUES ('', 0);
+INSERT INTO surveys(description, status) VALUES ('qeasdasd', 0);
+INSERT INTO surveys(description, status) VALUES ('Muy buena atención jajaja saludos', 1);
+INSERT INTO surveys(description, status) VALUES ('9p349823y4hf', 0;
 
 INSERT INTO complaints(owner_id, executor_id, priority, status, name, description) VALUES
 (3, 2, 5, 1, 'Arreglo de cañeria', 'La cañeria del baño del propietario ha sido tapada con un objeto

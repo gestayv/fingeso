@@ -40,13 +40,13 @@ class HomeController extends AppController
         $session = $this->request->session();
         if ($session->check('User')) {
             $rol = $session->read('User.tipo');
-            if($rol = 'admin'){
+            if($rol == 'admin'){
                 return $this->redirect(['controller' => 'Administrators', 'action' => 'index']);
-            }elseif ($rol = 'propietario') {
+            }elseif ($rol == 'propietario') {
                 return $this->redirect(['controller' => 'Owners', 'action' => 'index']);
-            }elseif ($rol = 'ejecutor') {
+            }elseif ($rol == 'ejecutor') {
                 return $this->redirect(['controller' => 'Executors', 'action' => 'index']);
-            }elseif ($rol = 'supervisor') {
+            }elseif ($rol == 'supervisor') {
                 return $this->redirect(['controller' => 'Supervisors', 'action' => 'index']);
             }else{
                 $this->Flash->set('Error al ingresar');

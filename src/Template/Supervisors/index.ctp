@@ -103,9 +103,9 @@
 						    	
 								if ($complaint->surveys[0]->status == 1) {
 						    		echo '<div class="elementudbutton">';
-									echo '<button class="btn btn-primary" style="background:black;padding:5px 5px;margin:3px;">Revisar Encuesta</button>';
+									echo $this->Html->link('Revisar Encuesta', ['controller'=>'Surveys','action' => 'view', $complaint->surveys[0]->id], ['class' => 'btn btn-primary', 'style' => 'background:black;padding:5px 5px;margin:3px;']);
 									echo '</div>';
-						    		}
+						    	}
 								?>
 							</div>
 					</div>
