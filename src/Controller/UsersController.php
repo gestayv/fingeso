@@ -154,7 +154,6 @@ class UsersController extends AppController
         $this->set(compact('buildings'));
         
         $datos = $this->request->data;
-        debug($datos);
         if($this->request->is('post'))
         {
             if($datos['tipoSubmit'] == 'Edificio')

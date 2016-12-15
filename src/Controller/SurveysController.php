@@ -21,6 +21,7 @@ class SurveysController extends AppController
     }
 
     /**
+
      * Index method
      *
      * @return \Cake\Network\Response|null
@@ -66,9 +67,6 @@ class SurveysController extends AppController
         $exec = $this->Executors->find('all')
             ->where(['Executors.id =' => $s->complaint->executor_id]);
 
-        foreach ($exec as $e) {
-            print_r($e);
-        }
         
         $this->set(compact('exec'));
         $this->set(compact('surveys'));

@@ -40,7 +40,13 @@
 						    	<?php echo $complaint->owner->name; ?>
 						    </div>
 						    <div class="elemento7">
-						    	<?php echo $complaint->executor->name; ?>
+							
+						   <?php
+						   if ($complaint->executor != NULL):?> 
+						   		<?php echo $complaint->executor->name; ?>
+
+						   
+     						<?php endif;?>
 						    </div>
 						    <div class="elemento7">
 						    	<?php 
